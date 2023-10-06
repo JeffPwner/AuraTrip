@@ -13,20 +13,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-use App\Http\Controllers\ViagemController;
+use App\Http\Controllers\TravelController;
 
-Route::get('/', [ViagemController::class, 'index']);
-Route::get('/events/create', [ViagemController::class, 'create']);
+Route::get('/', [TravelController::class, 'index']);
+
+Route::get('/events/create', [TravelController::class, 'create']);
 
 Route::get('/contact', function (){
     return view('contact');
 });
 
-Route::get('/viagens', function (){
-    $busca = request('search');
-    return view('viagens', ['busca' => $busca]);
-});
+// Route::get('/viagens', function (){
+//     $busca = request('search');
+//     return view('viagens', ['busca' => $busca]);
+// });
 
-Route::get('/viagens_teste/{id?}', function ($id = null){
-    return view('viagem', ['id' => $id]);
-});
+// Route::get('/viagens_teste/{id?}', function ($id = null){
+//     return view('viagem', ['id' => $id]);
+// });
