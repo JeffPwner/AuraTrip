@@ -16,30 +16,29 @@
         <script src="/js/scripts.js"></script>
     </head>
     <body>
-        <nav class="navbar navbar-expand-lg bg-body-tertiary">
-            <div class="container-fluid">
-              <a class="navbar-brand" href="#">AuraTrip</a>
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Viagens</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="/events/create">Criar Viagem</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Entrar</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Registrar</a>
-                        </li>
-                    </ul>
+        <header class="style_header">
+            <nav class="navbar navbar-expand-lg navbar-light">
+              <div class="collapse navbar-collapse" id="navbar">
+                <a href="/" class="navbar-brand">
+                  <img src="/img/auratrip-png.png" alt="Auratrip logo">
+                </a>
+                <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a href="/" class="nav-link">Viagens</a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="/events/create" class="nav-link">Criar Viagem</a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="/" class="nav-link">Entrar</a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="/" class="nav-link">Cadastrar</a>
+                  </li>
+                </ul>
               </div>
-            </div>
-          </nav>
+            </nav>
+          </header>
         
         @yield('content')
         <footer>
