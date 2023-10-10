@@ -16,8 +16,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TravelController;
 
 Route::get('/', [TravelController::class, 'index']);
-
 Route::get('/events/create', [TravelController::class, 'create']);
+Route::post('/events', [TravelController::class, 'store']);
 
 Route::get('/contact', function (){
     return view('contact');
