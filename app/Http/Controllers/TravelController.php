@@ -27,6 +27,15 @@ class TravelController extends Controller
         $travel->city = $request->city;
         $travel->description = $request->description;
 
+        //Image Upload
+        if($request->hasFile('image') && $request->file('image')->isValid()){
+            $requestImage = $request->image;
+            $extension = $requestImage->extension();
+            $imageName = md5($requestImage->getClientOriginalName() . strtotime("now")) . "." . $extension;
+            $request->image->move(public_path('img/travels'), $imageName);
+            $travel->image = $imageName;
+        }
+
         $travel->save();
 
         return redirect('/')->with('msg','Viagem criada com sucesso!');
