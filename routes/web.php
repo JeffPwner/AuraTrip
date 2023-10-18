@@ -17,6 +17,7 @@ use App\Http\Controllers\TravelController;
 
 Route::get('/', [TravelController::class, 'index']);
 Route::get('/events/create', [TravelController::class, 'create']);
+Route::get('/events/{id}', [TravelController::class, 'show']);
 Route::post('/events', [TravelController::class, 'store']);
 
 Route::get('/contact', function (){

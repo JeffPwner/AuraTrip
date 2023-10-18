@@ -41,5 +41,9 @@ class TravelController extends Controller
         return redirect('/')->with('msg','Viagem criada com sucesso!');
     }
 
+    public function show($id){
+        $travel = Travel::findOrFail($id);
+        return view('events.show', ['travel' => $travel]);
+    }
     
 }
