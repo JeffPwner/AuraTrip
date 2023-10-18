@@ -11,7 +11,7 @@
         </div>
         <div id="info-container" class="col-md-6">
             <h1>{{$travel->title}}</h1>
-            <p class="event-city"><ion-icon class="location-outline"></ion-icon>{{$travel->city}}</p>
+            <p class="event-city"><ion-icon name="location-outline"></ion-icon>{{$travel->city}}</p>
             <p class="description"><ion-icon name="star-outline"></ion-icon>{{$travel->description}}</p>
         </div>
     </div>
