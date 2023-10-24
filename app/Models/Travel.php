@@ -9,4 +9,8 @@ class Travel extends Model
 {
     protected $table = 'travels';
     use HasFactory;
+
+    protected $startDate = ['startDate'];
+    protected $endDate = ['endDate'];
+
 }

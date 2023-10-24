@@ -25,6 +25,14 @@
             <textarea name="description" id="description" placeholder="Descrição" class="form-control"></textarea>
         </div>
         <div class="form-group">
+            <label for="startDate">Data de Inicio:</label>
+            <input type="date" class="form-control" id="startDate" name="startDate">
+        </div>
+        <div class="form-group">
+            <label for="endDate">Data de Término:</label>
+            <input type="date" class="form-control" id="endDate" name="endDate">
+        </div>
+        <div class="form-group">
             <p>PLACEHOLDER FOR API</p>
         </div>
         <input type="submit" class="btn btn-primary">

@@ -26,6 +26,8 @@ class TravelController extends Controller
         $travel->title = $request->title;
         $travel->city = $request->city;
         $travel->description = $request->description;
+        $travel->startDate = $request->startDate;
+        $travel->endDate = $request->endDate;
 
         //Image Upload
         if($request->hasFile('image') && $request->file('image')->isValid()){
