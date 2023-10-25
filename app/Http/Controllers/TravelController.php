@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Travel;
+use Illuminate\Support\Facades\Auth;
 
 
 
@@ -10,14 +11,16 @@ class TravelController extends Controller
 {
     public function index(){
 
+        // $travels = Travel::where('user_id', Auth::user()->id)->get();
+
         $search = request('search');
 
         if ($search) {
-            $travels = Travel::where([
+            $travels = Travel::where('user_id',[
                 ['title', 'like', '%'.$search.'%']
             ])->get();
         }else{
-            $travels = Travel::all();
+            $travels = Travel::where('user_id', Auth::user()->id)->get();
         }
 
         // $travels = Travel::all();
@@ -46,6 +49,9 @@ class TravelController extends Controller
             $request->image->move(public_path('img/travels'), $imageName);
             $travel->image = $imageName;
         }
+
+        $user = auth()->user();
+        $travel->user_id = $user->id;
 
         $travel->save();
 

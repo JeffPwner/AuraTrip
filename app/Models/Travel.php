@@ -13,4 +13,8 @@ class Travel extends Model
     protected $startDate = ['startDate'];
     protected $endDate = ['endDate'];
 
+    public function user(){
+        return $this->belongsTo('App\Models\User');
+    }
+
 }
