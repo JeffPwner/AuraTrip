@@ -10,10 +10,19 @@ class TravelController extends Controller
 {
     public function index(){
 
+        $search = request('search');
 
-        $travels = Travel::all();
+        if ($search) {
+            $travels = Travel::where([
+                ['title', 'like', '%'.$search.'%']
+            ])->get();
+        }else{
+            $travels = Travel::all();
+        }
 
-        return view('welcome', ['travels' => $travels]);
+        // $travels = Travel::all();
+
+        return view('welcome', ['travels' => $travels, 'search' => $search]);
         // return view('welcome', ['']);
     }
 
