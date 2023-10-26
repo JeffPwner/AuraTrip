@@ -9,25 +9,26 @@ use Illuminate\Support\Facades\Auth;
 
 class TravelController extends Controller
 {
-    public function index(){
-
-        // $travels = Travel::where('user_id', Auth::user()->id)->get();
-
+    public function index()
+    {
         $search = request('search');
-
-        if ($search) {
-            $travels = Travel::where('user_id',[
-                ['title', 'like', '%'.$search.'%']
-            ])->get();
-        }else{
-            $travels = Travel::where('user_id', Auth::user()->id)->get();
+    
+        if (auth()->check()) { // Verifique se o usuário está autenticado
+            if ($search) {
+                $travels = Travel::where('user_id', auth()->user()->id)
+                    ->where('title', 'like', '%' . $search . '%')
+                    ->get();
+            } else {
+                $travels = Travel::where('user_id', auth()->user()->id)->get();
+            }
+        } else {
+            // Usuário não autenticado, defina $travels como uma coleção vazia
+            $travels = collect();
         }
-
-        // $travels = Travel::all();
-
+    
         return view('welcome', ['travels' => $travels, 'search' => $search]);
-        // return view('welcome', ['']);
     }
+    
 
     public function create(){
         return view('events.create');
