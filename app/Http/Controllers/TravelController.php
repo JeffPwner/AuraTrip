@@ -63,5 +63,16 @@ class TravelController extends Controller
         $travel = Travel::findOrFail($id);
         return view('events.show', ['travel' => $travel]);
     }
+
+    public function dashboard(){
+        $travels = Travel::where('user_id', auth()->user()->id)->get();
+        return view('dashboard', ['travels' => $travels]);
+    }
+
+
+    public function destroy($id){
+        Travel::findOrFail($id)->delete();
+        return redirect('/dashboard')->with('msg', 'Viagem excluída com sucesso!');
+    }
     
 }

@@ -15,6 +15,8 @@
             <p class="description">{{$travel->description}}</p>
             <p>Data de início: {{date('d/m/Y', strtotime($travel->startDate))}}</p>
             <p>Data de término: {{date('d/m/Y', strtotime($travel->endDate))}}</p>
+            <a href="#" class="btn btn-info edit-btn">Editar</a>
+            <a href="#" class="btn btn-info edit-btn">Deletar</a>
         </div>
     </div>
     <div class="col-md-12" id="api-container">
