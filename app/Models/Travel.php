@@ -17,4 +17,5 @@ class Travel extends Model
         return $this->belongsTo('App\Models\User');
     }
 
+    protected $guarded = [];
 }

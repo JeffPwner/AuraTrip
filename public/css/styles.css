@@ -89,6 +89,12 @@
   }
 
 
+  /* Dashboard */
+  #info-container form{
+    display: inline-block;
+  }
+
+
   /* Travel list */
   #travels-container {
     padding: 50px;

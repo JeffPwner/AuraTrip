@@ -20,7 +20,10 @@ Route::get('/events/create', [TravelController::class, 'create'])->middleware('a
 Route::get('/events/{id}', [TravelController::class, 'show'])->middleware('auth');
 Route::get('/dashboard', [TravelController::class, 'dashboard'])->middleware('auth');
 Route::post('/events', [TravelController::class, 'store']);
-Route::delete('/events/{id}', [TravelController::class, 'destroy']);
+Route::delete('/events/{id}', [TravelController::class, 'destroy'])->middleware('auth');
+Route::get('/events/edit/{id}', [TravelController::class, 'edit'])->middleware('auth');
+Route::put('/events/update/{id}', [TravelController::class, 'update'])->middleware('auth');
+Route::delete('/events/update/{id}', [TravelController::class, 'destroy'])->middleware('auth');
 
 Route::get('/contact', function (){
     return view('contact');

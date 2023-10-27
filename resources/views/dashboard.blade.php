@@ -4,10 +4,22 @@
 
 @section('content')
 
+<div id="search-container" class="col-md-12">
+    <h1>Busque por uma Viagem</h1>
+    <form action="/dashboard" method="GET">
+        <input type="text" id="search" name="search" class="form-control" placeholder="Procurar...">
+    </form>
+</div>
+
+<div id="travels-container" class="col-md-12">
+    @if ($search)
+        <h2>Buscando por: {{$search}}</h2>
+    @else
+        <h2>Todas as Viagens</h2>
+    @endif
+
 <div id="travels-container" class="col-md-12">
     
-    
-    <h2>Todas as Viagens Planejadas</h2>
     <div id="cards-container" class="row">
         @foreach($travels as $travel)
         <div class="card col-md-3">
@@ -17,7 +29,7 @@
                 <p class="card-place">{{$travel->city}}</p>
                 <p class="card-date">Início: {{date('d/m/Y', strtotime($travel->startDate))}}</p>
                 <p class="card-date">Fim: {{date('d/m/Y', strtotime($travel->endDate))}}</p>
-                <a href="#" class="btn btn-info edit-btn">Editar</a>
+                <a href="/events/edit/{{$travel->id}}" class="btn btn-info edit-btn">Editar</a>
                 <form action="/events/{{$travel->id}}" method="POST">
                     @csrf
                     @method('DELETE')
@@ -27,9 +39,9 @@
         </div>
         @endforeach
         @if (count($travels) == 0 && $search)
-            <p>Não foi possível encontrar nenhuma viagem planejada com: {{$search}}! <a href="/">Ver todas</a></p>
+            <p>Não foi possível encontrar nenhuma viagem planejada com: {{$search}}! <a href="/dashboard">Ver todas</a></p>
         @elseif(count($travels) == 0)
-            <p>Não há viagens planejadas até o momento.</p>
+            <p>Não há viagens planejadas até o momento. <a href="/events/create">Clique aqui para criar a sua!</a></p>
         @endif
     </div>
 </div>

@@ -34,9 +34,9 @@
         </div>
         @endforeach
         @if (count($travels) == 0 && $search)
-            <p>Não foi possível encontrar nenhuma viagem planejada com: {{$search}}! <a href="/">Ver todas</a></p>
+            <p>Não foi possível encontrar nenhuma viagem planejada com: {{$search}}! <a href="/dashboard">Ver todas</a></p>
         @elseif(count($travels) == 0)
-            <p>Não há viagens planejadas até o momento.</p>
+            <p>Não há viagens planejadas até o momento. <a href="/events/create">Clique aqui para criar a sua!</a></p>
         @endif
     </div>
 </div>
