@@ -1,3 +1,24 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+
+/*
+    responsividade
+    320px — 480px: dispositivos móveis
+    481px — 768px: iPads, tablets
+    769px — 1024px: telas pequenas, laptops
+    1025px — 1200px: desktops, telas grandes
+    1201px e acima —  telas muito grandes, TVs
+*/
+
+@media (min-width: 1025px) {}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+}
+
 /*skip to main content button - https://www.freecodecamp.org/news/how-to-add-skip-to-main-content-links-to-a-website/#:~:text=The%20skip%2Dto%2Dmain%2Dcontent%20link%20is%20an%20ordinary,content%20on%20the%20web%20page.*/
 .skip-to-main-content-link {
   position: absolute;
@@ -13,23 +34,6 @@
   transform: translateX(20%);
   opacity: 1;
 }
-
-.style_header {
-  width: 100%;
-  height: 100vh;
-  background-size: cover;
-  /* vai deixar a imagem cobrindo a tela toda*/
-  background-position: center;
-  padding: 0 8%;
-  position: relative;
-}
-
-#main {
-  background-image: url("https://res.cloudinary.com/dlsuopwkn/image/upload/v1697428363/samples/animals/banner_home.png");
-}
-
-/* header and banner */
-
 
 /* header and banner */
 
@@ -57,6 +61,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  max-width: 90%;
+  margin: auto;
 }
 
 header .buttons {
@@ -76,7 +82,7 @@ header .logo_img {
   margin: 0 10px;
   font-weight: 600;
   text-decoration: none;
-  color: #141414;
+  color: #ffffff;
   position: relative;
 }
 
@@ -116,6 +122,7 @@ header .logo_img {
     opacity: 0;
     transform: translateY(100%);
   }
+
   100% {
     opacity: 1;
     transform: translateY(0);
@@ -141,156 +148,105 @@ header .logo_img {
     opacity: 0;
     transform: translateY(100%);
   }
+
   100% {
     opacity: 1;
     transform: translateY(0);
   }
 }
 
-/* General */
-* {
-    font-family: 'Roboto';
-  }
-  
-  body {
-    min-height: 100vh;
-    padding-bottom: 100px;
-    position: relative;
-  }
-  
-  header {
-    background-color: #FFF;
-    border-bottom: 1px solid #CCC;
-  }
-  
-  .row {
-    margin: 0;
-  }
-  
-  .container-fluid {
-    padding: 0;
-  }
-  
-  .btn-primary {
-    background-color:  #03ab99;
-    border: 2px solid #059672;
-  }
-  
-  .btn-primary:hover {
-    background-color:  #078073;
-    border-color: #045a47;
-  }
+/* botão de pesquisa */
 
-  .msg{
-    background-color: #d4edda;
-    color: #155724;
-    border: 1px solid #c3e6cb;
-    width: 100%;
-    margin-bottom: 0;
-    text-align: center;
-    padding: 10px;
-  }
-  /* navbar */
-  /* #navbar img {
-    width: 40px;
-  }
-  
-  #navbar {
-    justify-content: space-between;
-    background-color: #FFF;
-    padding: 5px 0;
-  }
-  
-  #navbar a {
-    font-size: 14px;
-    color: #757575;
-  }
-  
-  #navbar a:hover {
-    color: #F2A340;
-  } */ 
-  
-  /* Search Container */
-  /* #search-container {
-    background-image: url("../img/auratrip.jpg");
-    background-size: cover;
-    background-position: center;
-    height: 400px;
-    padding: 50px;
-    text-align: center;
-  } */
-  
-  #search-container h1 {
-    color: #049c8d;
-    margin-bottom: 30px;
-    font-weight: 900;
-  }
-  
-  #search-container form {
-    width: 50%;
-    margin: 0 auto;
-  }
-  
-  /* Travel list */
-  #travels-container {
-    padding: 50px;
-  }
-  
-  #travels-container h2 {
-    margin-bottom: 10px;
-  }
-  
-  #travels-container .subtitle {
-    color: #757575;
-    margin-bottom: 30px;
-  }
-  
-  #cards-container {
-    display: flex;
-  }
-  
-  #travels-container .card {
-    flex: 1 1 24%;
-    max-width: 25%;
-    border-radius: 10px;
-    padding: 0;
-    margin: .5%;
-  }
-  
-  #travels-container img {
-    max-height: 150px;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-  }
-  
-  .card .card-date {
-    font-size: 12px;
-    color: #CCC;
-  }
-  
-  .card .card-title {
-    color: #212121;
-    font-size: 20px;
-    font-weight: bold;
-    margin-bottom: 30px;
-  }
-  
-  .card-place {
-    font-size: 14px;
-    color: #757575;
-  }
-  
-  /* footer */
-  footer {
-    text-align: center;
-    background-color: #353E48;
-    color: #FFF;
-    padding: 30px;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-  }
-  
-  footer p {
-    margin-bottom: 0;
-  }
+.formdobotaopesquisa {
+  text-align: center;
+}
+
+input.form-control {
+  background: rgba(0, 0, 0, 0.2);
+  /* Fundo com baixa opacidade */
+  border-radius: 10px;
+  width: 80%;
+  margin: auto;
+  color: white;
+  padding: 8px;
+  font-size: 15px;
+  outline: 2px solid rgba(255, 255, 255, 0.2);
+  border: none;
+}
+
+#search::placeholder {
+  color: white;
+  font-weight: 500;
+  opacity: 1;
+}
+
+/* section 1 */
+
+.style_section {
+  width: 100%;
+  padding: 5vh 8%;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.container_image img {
+  height: 55vh;
+}
+
+/* footer */
+
+footer {
+  background: #fff;
+  padding: 0 8%;
+  width: 100%;
+  color: #191a1a;
+  border-top: 5px solid #A0C8F9;
+}
+
+.container_footer {
+  width: 90%;
+  display: flex;
+  margin: auto;
+  justify-content: space-between;
+}
+
+footer p,
+.teste {
+  text-align: center;
+  font-weight: 500;
+}
+
+footer p ion-icon {
+  background: #272a2f;
+  color: #fff;
+  padding: 9px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+  font-size: 16px;
+  margin: 0 10px;
+  margin-top: 15px;
+  border-radius: 4px;
+}
+
+footer p a ion-icon:hover {
+  background: #fff;
+  color: #191a1a;
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+/* section copyright */
+
+.copyright {
+  border-top: 3px solid #A0C8F9;
+}
+
+.copyright,
+.copyright p {
+  background: #fff;
+  padding: 2px;
+  text-align: center;
+  color: #191a1a;
+}
