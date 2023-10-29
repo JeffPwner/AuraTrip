@@ -21,13 +21,13 @@
         <meta name="google-site-verification" content="z_lH9tH0wbjtMz-3Gxh-qzwu25t_HTu6qWTVMIgMeiQ" />
         <title>AuraTrip</title>
         <link rel="icon" href="https://res.cloudinary.com/dlsuopwkn/image/upload/v1697427878/samples/animals/auratripicon.png" />
-        <link rel="stylesheet" href="/css/styles.css">
+        @yield('exportcss')
 
         <script src="/js/scripts.js"></script>
     </head>
     <body>
       <a href="#home" class="skip-to-main-content-link">Saltar para o conteúdo principal</a>
-        <header id="main" class="style_header">
+          @yield('imagemdobanner')
           @yield('banner')
         </header>
         <main>

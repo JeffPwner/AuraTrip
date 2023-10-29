@@ -45,6 +45,10 @@
   background-image: url("https://res.cloudinary.com/dlsuopwkn/image/upload/v1697428363/samples/animals/banner_home.png");
 }
 
+#pag_erro {
+  background-image: url("https://res.cloudinary.com/dlsuopwkn/image/upload/v1698541964/samples/animals/background_erro404.png");
+}
+
 /* banner texto título efeito https://www.youtube.com/watch?v=rc50owRPdUI&pp=ygUVc3R5bGUgY3NzIHRleHQgYmFubmVy */
 
 .style_header {

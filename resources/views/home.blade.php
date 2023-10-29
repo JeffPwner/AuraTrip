@@ -1,6 +1,14 @@
 @extends('layouts.template')
 
 @section('title', 'AuraTrip')
+
+@section('exportcss')
+    <link rel="stylesheet" href="/css/styles.css">
+@endsection
+
+@section('imagemdobanner')
+    <header id="main" class="style_header">
+@endsection
     
 @section('banner')
 
