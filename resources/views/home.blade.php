@@ -1,0 +1,70 @@
+@extends('layouts.template')
+
+@section('title', 'AuraTrip')
+
+{{-- @section('exportcss')
+    <link rel="stylesheet" href="/css/styles.css">
+@endsection --}}
+
+{{-- @section('imagemdobanner')
+    <header id="main" class="style_header">
+@endsection --}}
+    
+{{-- @section('banner')
+
+    <div class="container_header">
+        <a href="/">
+            <img class="logo_img" src="https://res.cloudinary.com/dlsuopwkn/image/upload/v1698457738/samples/animals/auratripicon_white.png" width="30" height="30" alt="logo" />
+        </a>
+        <ul class="buttons" id="home" style="margin-bottom: 0;">
+            <li><a href="/dashboard">Viagens</a></li>
+            <li><a href="/events/create">Criar Viagem</a></li>
+            <li><a href="/register">Cadastrar</a></li>
+            <li><a href="/login">Entrar</a></li>
+        </ul>
+        <!-- <div class="menucell"><ion-icon name="menu-outline"></ion-icon></div> -->
+    </div>
+    <h1 class="title_tromso" style="margin-top: 30px;">AuraTrip</h1>
+
+    <div id="search-container" class="col-md-12">
+        <form action="/" method="GET" class="formdobotaopesquisa">
+            <input type="text" id="search" name="search" class="form-control" placeholder="Busque por uma Viagem - Procurar...">
+        </form>
+    </div>
+
+@endsection --}}
+
+@section('content')
+
+@auth
+<div id="travels-container" class="col-md-12">
+    @if ($search)
+        <h2>Buscando por: {{$search}}</h2>
+    @else
+        <h2>Todas as Viagens</h2>
+    @endif
+    
+    
+    <p class="subtitle">Veja as viagens planejadas!</p>
+    <div id="cards-container" class="row">
+        @foreach($travels as $travel)
+        <div class="card col-md-3">
+            <img src="/img/travels/{{$travel->image}}" alt="{{ $travel->title }}">
+            <div class="card-body">
+                <h5 class="card-title">{{ $travel->title }}</h5>
+                <p class="card-place">{{$travel->city}}</p>
+                <p class="card-date">Início: {{date('d/m/Y', strtotime($travel->startDate))}}</p>
+                <p class="card-date">Fim: {{date('d/m/Y', strtotime($travel->endDate))}}</p>
+                <a href="/events/{{$travel->id}}" class="btn btn-primary">Viajar</a>
+            </div>
+        </div>
+        @endforeach
+        @if (count($travels) == 0 && $search)
+            <p>Não foi possível encontrar nenhuma viagem planejada com: {{$search}}! <a href="/dashboard">Ver todas</a></p>
+        @elseif(count($travels) == 0)
+            <p>Não há viagens planejadas até o momento. <a href="/events/create">Clique aqui para criar a sua!</a></p>
+        @endif
+    </div>
+</div>
+@endauth
+@endsection

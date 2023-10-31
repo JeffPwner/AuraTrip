@@ -9,4 +9,13 @@ class Travel extends Model
 {
     protected $table = 'travels';
     use HasFactory;
+
+    protected $startDate = ['startDate'];
+    protected $endDate = ['endDate'];
+
+    public function user(){
+        return $this->belongsTo('App\Models\User');
+    }
+
+    protected $guarded = [];
 }
