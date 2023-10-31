@@ -10,8 +10,7 @@ use Carbon\Carbon;
 
 class TravelController extends Controller
 {
-    public function index()
-    {
+
     public function index()
     {
         $search = request('search');
@@ -29,7 +28,7 @@ class TravelController extends Controller
             $travels = collect();
         }
     
-        return view('welcome', ['travels' => $travels, 'search' => $search]);
+        return view('home', ['travels' => $travels, 'search' => $search]);
     }
     
 

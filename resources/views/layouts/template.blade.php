@@ -19,16 +19,52 @@
         <meta name="description" content="Auratrip - TCC Fatec Rubens Lara." />
         <!-- google site verification -->
         <meta name="google-site-verification" content="z_lH9tH0wbjtMz-3Gxh-qzwu25t_HTu6qWTVMIgMeiQ" />
-        <title>AuraTrip</title>
+        <title>@yield('title')</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
         <link rel="icon" href="https://res.cloudinary.com/dlsuopwkn/image/upload/v1697427878/samples/animals/auratripicon.png" />
-        @yield('exportcss')
+        <link rel="stylesheet" href="/css/styles.css">
 
         <script src="/js/scripts.js"></script>
     </head>
     <body>
-      <a href="#home" class="skip-to-main-content-link">Saltar para o conteúdo principal</a>
-          @yield('imagemdobanner')
-          @yield('banner')
+      <a href="/" class="skip-to-main-content-link">Saltar para o conteúdo principal</a>
+          {{-- @yield('imagemdobanner')
+          @yield('banner') --}}
+        <header id="main" class="style_header">
+            <div class="container_header">
+              <a href="/">
+                  <img class="logo_img" src="https://res.cloudinary.com/dlsuopwkn/image/upload/v1698457738/samples/animals/auratripicon_white.png" width="30" height="30" alt="logo" />
+              </a>
+              <ul class="buttons" id="home" style="margin-bottom: 0;">
+                  <li><a href="/dashboard">Viagens</a></li>
+                  <li><a href="/events/create">Criar Viagem</a></li>
+                  @guest
+                    <li><a href="/register">Cadastrar</a></li>
+                    <li><a href="/login">Entrar</a></li>
+                  @endguest
+                  @auth
+                    <li>
+                      <form action="/logout" method="POST">
+                        @csrf
+                        <a href="/logout" 
+                          class="nav-link" 
+                          onclick="event.preventDefault();
+                          this.closest('form').submit();">
+                          Sair
+                        </a>
+                      </form>
+                    </li>
+                  @endauth
+              </ul>
+              <!-- <div class="menucell"><ion-icon name="menu-outline"></ion-icon></div> -->
+          </div>
+          <h1 class="title_tromso" style="margin-top: 30px;">AuraTrip</h1>
+      
+          <div id="search-container" class="col-md-12">
+              <form action="/" method="GET" class="formdobotaopesquisa">
+                  <input type="text" id="search" name="search" class="form-control" placeholder="Busque por uma Viagem - Procurar...">
+              </form>
+          </div>
         </header>
         <main>
           <div class="container-fluid">
@@ -64,5 +100,6 @@
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
         <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+        
       </body>
 </html>

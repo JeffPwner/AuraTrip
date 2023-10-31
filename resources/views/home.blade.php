@@ -2,25 +2,25 @@
 
 @section('title', 'AuraTrip')
 
-@section('exportcss')
+{{-- @section('exportcss')
     <link rel="stylesheet" href="/css/styles.css">
-@endsection
+@endsection --}}
 
-@section('imagemdobanner')
+{{-- @section('imagemdobanner')
     <header id="main" class="style_header">
-@endsection
+@endsection --}}
     
-@section('banner')
+{{-- @section('banner')
 
     <div class="container_header">
-        <a href="index.html">
+        <a href="/">
             <img class="logo_img" src="https://res.cloudinary.com/dlsuopwkn/image/upload/v1698457738/samples/animals/auratripicon_white.png" width="30" height="30" alt="logo" />
         </a>
         <ul class="buttons" id="home" style="margin-bottom: 0;">
-            <li><a href="index.html">Viagens</a></li>
-            <li><a href="postar.html">Criar Viagem</a></li>
-            <li><a href="#">Cadastrar</a></li>
-            <li><a href="contato.html">Entrar</a></li>
+            <li><a href="/dashboard">Viagens</a></li>
+            <li><a href="/events/create">Criar Viagem</a></li>
+            <li><a href="/register">Cadastrar</a></li>
+            <li><a href="/login">Entrar</a></li>
         </ul>
         <!-- <div class="menucell"><ion-icon name="menu-outline"></ion-icon></div> -->
     </div>
@@ -32,7 +32,7 @@
         </form>
     </div>
 
-@endsection
+@endsection --}}
 
 @section('content')
 
