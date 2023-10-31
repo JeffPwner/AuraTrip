@@ -12,6 +12,8 @@ class TravelController extends Controller
 {
     public function index()
     {
+    public function index()
+    {
         $search = request('search');
     
         if (auth()->check()) { // Verifique se o usuário está autenticado

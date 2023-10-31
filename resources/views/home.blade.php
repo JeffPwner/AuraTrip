@@ -1,15 +1,41 @@
-@extends('layouts.main')
+@extends('layouts.template')
 
 @section('title', 'AuraTrip')
+
+@section('exportcss')
+    <link rel="stylesheet" href="/css/styles.css">
+@endsection
+
+@section('imagemdobanner')
+    <header id="main" class="style_header">
+@endsection
     
+@section('banner')
+
+    <div class="container_header">
+        <a href="index.html">
+            <img class="logo_img" src="https://res.cloudinary.com/dlsuopwkn/image/upload/v1698457738/samples/animals/auratripicon_white.png" width="30" height="30" alt="logo" />
+        </a>
+        <ul class="buttons" id="home" style="margin-bottom: 0;">
+            <li><a href="index.html">Viagens</a></li>
+            <li><a href="postar.html">Criar Viagem</a></li>
+            <li><a href="#">Cadastrar</a></li>
+            <li><a href="contato.html">Entrar</a></li>
+        </ul>
+        <!-- <div class="menucell"><ion-icon name="menu-outline"></ion-icon></div> -->
+    </div>
+    <h1 class="title_tromso" style="margin-top: 30px;">AuraTrip</h1>
+
+    <div id="search-container" class="col-md-12">
+        <form action="/" method="GET" class="formdobotaopesquisa">
+            <input type="text" id="search" name="search" class="form-control" placeholder="Busque por uma Viagem - Procurar...">
+        </form>
+    </div>
+
+@endsection
+
 @section('content')
 
-<div id="search-container" class="col-md-12">
-    <h1>Busque por uma Viagem</h1>
-    <form action="/" method="GET">
-        <input type="text" id="search" name="search" class="form-control" placeholder="Procurar...">
-    </form>
-</div>
 @auth
 <div id="travels-container" class="col-md-12">
     @if ($search)
