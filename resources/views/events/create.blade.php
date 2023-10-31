@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('layouts.template')
 
 @section('title', 'Criar Viagem')
 
