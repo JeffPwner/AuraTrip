@@ -4,11 +4,13 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Travel;
 use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
 
 
 
 class TravelController extends Controller
 {
+
     public function index()
     {
         $search = request('search');
@@ -26,7 +28,7 @@ class TravelController extends Controller
             $travels = collect();
         }
     
-        return view('welcome', ['travels' => $travels, 'search' => $search]);
+        return view('home', ['travels' => $travels, 'search' => $search]);
     }
     
 
@@ -65,8 +67,23 @@ class TravelController extends Controller
     }
 
     public function dashboard(){
+        $search = request('search');
+    
+        if (auth()->check()) { // Verifique se o usuário está autenticado
+            if ($search) {
+                $travels = Travel::where('user_id', auth()->user()->id)
+                    ->where('title', 'like', '%' . $search . '%')
+                    ->get();
+            } else {
+                $travels = Travel::where('user_id', auth()->user()->id)->get();
+            }
+        } else {
+            // Usuário não autenticado, defina $travels como uma coleção vazia
+            $travels = collect();
+        }
+    
         $travels = Travel::where('user_id', auth()->user()->id)->get();
-        return view('dashboard', ['travels' => $travels]);
+        return view('dashboard', ['travels' => $travels, 'search' => $search]);
     }
 
 
@@ -75,4 +92,14 @@ class TravelController extends Controller
         return redirect('/dashboard')->with('msg', 'Viagem excluída com sucesso!');
     }
     
+    public function edit($id){
+        $travel = Travel::findOrFail($id);
+        return view('events.edit', ['travel' => $travel]);
+    }
+
+    public function update(Request $request){
+        Travel::findOrFail($request->id)->update($request->all());
+        return redirect('/dashboard')->with('msg', 'Viagem editada com sucesso!');
+    }
+
 }
