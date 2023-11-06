@@ -27,9 +27,11 @@
     </head>
     <body>
       <a href="#home" class="skip-to-main-content-link">Saltar para o conteúdo principal</a>
-          @yield('imagemdobanner')
-          @yield('banner')
-        </header>
+          
+      @yield('header')
+          
+      @yield('banner')
+          
         <main>
           <div class="container-fluid">
             <div class="row">

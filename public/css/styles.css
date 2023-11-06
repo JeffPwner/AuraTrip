@@ -62,14 +62,17 @@
 }
 
 .container_header {
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 90%;
+  padding: 0 12%;
+  z-index: 2;
+  position: fixed;
   margin: auto;
 }
 
-header .buttons {
+header .buttons_header {
   display: flex;
   list-style: none;
 }
@@ -80,7 +83,7 @@ header .logo_img {
   margin-top: 6px;
 }
 
-.buttons li a {
+.buttons_header li a {
   cursor: pointer;
   font-size: 20px;
   margin: 0 10px;
@@ -90,7 +93,7 @@ header .logo_img {
   position: relative;
 }
 
-.buttons li a::after {
+.buttons_header li a::after {
   content: "";
   bottom: 0;
   position: absolute;
@@ -101,7 +104,7 @@ header .logo_img {
   transition: 0.2s;
 }
 
-.buttons li a:hover::after {
+.buttons_header li a:hover::after {
   left: 0;
   width: 100%;
 }
