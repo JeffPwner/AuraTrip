@@ -6,27 +6,6 @@
     <link rel="stylesheet" href="/css/styles.css">
 @endsection
 
-
-    
-@section('header')
-
-    <header>
-        <div class="container_header">
-            <a class="logo_header" href="index.html">
-                <img class="logo_img" src="https://res.cloudinary.com/dlsuopwkn/image/upload/v1698457738/samples/animals/auratripicon_white.png" width="30" height="30" alt="logo" />
-            </a>
-            <ul class="buttons_header" id="home" style="margin-bottom: 0;">
-                <li><a href="index.html">Viagens</a></li>
-                <li><a href="postar.html">Criar Viagem</a></li>
-                <li><a href="#">Cadastrar</a></li>
-                <li><a href="contato.html">Entrar</a></li>
-            </ul>
-            <!-- <div class="menucell"><ion-icon name="menu-outline"></ion-icon></div> -->
-        </div>
-    </header>
-
-@endsection
-
 @section('banner')
     <section id="main" class="style_header">
         <h1 class="title_tromso" style="padding-top: 80px;">AuraTrip</h1>

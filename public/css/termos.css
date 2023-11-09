@@ -1,0 +1,32 @@
+header {
+    display: none;
+}
+
+.comecotermos {
+    width: 100%;
+    text-align: center;
+    padding: 20px;
+    background-color: #03AB99;
+    color: black;
+}
+
+.container_termos {
+    margin: auto;
+    max-width: 70%;
+    padding: 20px;
+}
+
+.container_termos strong p {
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.container_termos ul li {
+    font-weight: 400;
+}
+
+.container_termos p {
+    font-weight: 400;
+    font-size: 16px;
+    text-align: justify;
+}

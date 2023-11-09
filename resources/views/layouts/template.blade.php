@@ -28,7 +28,20 @@
     <body>
       <a href="#home" class="skip-to-main-content-link">Saltar para o conteúdo principal</a>
           
-      @yield('header')
+      <header>
+        <div class="container_header">
+            <a class="logo_header" href="index.html">
+                <img class="logo_img" src="https://res.cloudinary.com/dlsuopwkn/image/upload/v1698457738/samples/animals/auratripicon_white.png" width="30" height="30" alt="logo" />
+            </a>
+            <ul class="buttons_header" id="home" style="margin-bottom: 0;">
+                <li><a href="index.html">Viagens</a></li>
+                <li><a href="postar.html">Criar Viagem</a></li>
+                <li><a href="#">Cadastrar</a></li>
+                <li><a href="contato.html">Entrar</a></li>
+            </ul>
+            <!-- <div class="menucell"><ion-icon name="menu-outline"></ion-icon></div> -->
+        </div>
+      </header>
           
       @yield('banner')
           
@@ -55,7 +68,7 @@
               <p>
                 <a title="Github AuraTrip" href="https://github.com/jeffpwner/auratrip" target="_blank"><ion-icon name="logo-github"></ion-icon></a>
                 <a title="Instagram AuraTrip" href="https://instagram.com/auratrip_" target="_blank"><ion-icon name="logo-instagram"></ion-icon></a>
-                <a title="Behance AuraTrip" href="https://www.behance.net/guilhermesilva77" target="_blank"><ion-icon name="logo-behance"></ion-icon></a>
+                <a title="Behance AuraTrip" href="https://www.behance.net/guilhermecrispim" target="_blank"><ion-icon name="logo-behance"></ion-icon></a>
                 <a title="E-mail AuraTrip" href="mailto:guicrispim1000@gmail.com" target="_blank"><ion-icon name="mail"></ion-icon></a>
               </p>
             </div>

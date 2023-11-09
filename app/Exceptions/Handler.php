@@ -28,3 +28,16 @@ class Handler extends ExceptionHandler
         });
     }
 }
+
+use Symfony\Component\HttpKernel\Exception\HttpException;
+
+// ...
+
+// protected function renderHttpException(HttpException $e)
+// {
+//     if ($e->getStatusCode() === 403) {
+//         return response()->view('errors.403', [], 403);
+//     }
+
+//     return $this->convertExceptionToResponse($e);
+// }

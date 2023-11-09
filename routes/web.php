@@ -24,6 +24,10 @@ Route::get('/contact', function (){
     return view('contact');
 });
 
+Route::get('/termos', function (){
+    return view('termos');
+});
+
 // Route::get('/viagens', function (){
 //     $busca = request('search');
 //     return view('viagens', ['busca' => $busca]);
