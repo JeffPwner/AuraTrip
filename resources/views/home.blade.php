@@ -65,6 +65,87 @@
             <p>Não há viagens planejadas até o momento. <a href="/events/create">Clique aqui para criar a sua!</a></p>
         @endif
     </div>
+
+    {{-- AutoComplete --}}
+        <div class="container">
+            <input type="text" id="place-name" placeholder="Nome do lugar">
+            <div id="results"></div>
+        </div>
+    
+        <script>
+            var input = document.getElementById("place-name");
+    
+            // Cria um ouvinte de evento para o evento "keyup"
+            input.addEventListener("keyup", function() {
+    
+                // Obtém o texto digitado no campo de pesquisa
+                var text = input.value;
+    
+                // Realiza uma pesquisa de autocompletar com o texto digitado
+                var results = new google.maps.places.Autocomplete(input, {
+                    types: ["establishment", "geocode"]
+                });
+    
+                // Exibe os resultados da pesquisa de autocompletar
+                results.setBounds(new google.maps.LatLngBounds(-90, -180, 90, 180));
+                results.addListener("place_changed", function() {
+                    var place = results.getPlace();
+                    if (place) {
+                        // Atualiza o campo de pesquisa com o nome do lugar
+                        input.value = place.name;
+    
+                        // Exibe o endereço do lugar
+                        document.getElementById("results").innerHTML = place.formatted_address;
+                    }
+                });
+            });
+        </script>
+
+    {{-- findPlaceFromQuery --}}
+    <label for="searchInput">Digite o que deseja:</label>
+    <input type="text" id="searchInput" placeholder="Digite sua pesquisa">
+
+    <button onclick="searchPlaces()">Buscar Locais</button>
+
+    <ul id="resultsList"></ul>
+
+    <script>let placesService;
+        let map;
+        
+        function initMap() {
+            map = new google.maps.Map(document.createElement('div'));
+            placesService = new google.maps.places.PlacesService(map);
+        }
+        
+        function searchPlaces() {
+            const searchInput = document.getElementById('searchInput').value;
+        
+            if (searchInput.trim() !== '') {
+                const request = {
+                    query: searchInput,
+                    fields: ['name', 'formatted_address', 'place_id', 'types']
+                };
+        
+                placesService.findPlaceFromQuery(request, displayResults);
+            }
+        }
+        
+        function displayResults(results, status) {
+            const resultsList = document.getElementById('resultsList');
+            resultsList.innerHTML = '';
+        
+            if (status === google.maps.places.PlacesServiceStatus.OK) {
+                results.forEach(place => {
+                    const listItem = document.createElement('li');
+                    listItem.innerHTML = `<strong>${place.name}</strong> - ${place.formatted_address} (${place.types.join(', ')})`;
+                    resultsList.appendChild(listItem);
+                });
+            } else {
+                resultsList.innerHTML = '<li>Nenhum resultado encontrado.</li>';
+            }
+        }</script>
+
+
 </div>
 @endauth
 @endsection

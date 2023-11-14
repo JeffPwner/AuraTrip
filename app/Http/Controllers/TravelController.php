@@ -7,7 +7,6 @@ use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
 
 
-
 class TravelController extends Controller
 {
 
@@ -27,7 +26,7 @@ class TravelController extends Controller
             // Usuário não autenticado, defina $travels como uma coleção vazia
             $travels = collect();
         }
-    
+        
         return view('home', ['travels' => $travels, 'search' => $search]);
     }
     
@@ -101,5 +100,14 @@ class TravelController extends Controller
         Travel::findOrFail($request->id)->update($request->all());
         return redirect('/dashboard')->with('msg', 'Viagem editada com sucesso!');
     }
+
+    // public function complete() {
+    //   $googlePlaces = new PlacesApi('AIzaSyBTxF53J3Ji_U1YDmtNtSZwr1eu0_wN69I'); # line 1
+    //   $response = $googlePlaces->placeAutocomplete('cubatão'); # line 2
+    // }
+
+
+
+    
 
 }

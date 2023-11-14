@@ -1,15 +1,4 @@
 <?php return array (
-  'jenssegers/agent' => 
-  array (
-    'providers' => 
-    array (
-      0 => 'Jenssegers\\Agent\\AgentServiceProvider',
-    ),
-    'aliases' => 
-    array (
-      'Agent' => 'Jenssegers\\Agent\\Facades\\Agent',
-    ),
-  ),
   'laravel/fortify' => 
   array (
     'providers' => 
@@ -75,6 +64,24 @@
     'providers' => 
     array (
       0 => 'Termwind\\Laravel\\TermwindServiceProvider',
+    ),
+  ),
+  'sfneal/google-places' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'Sfneal\\GooglePlaces\\Providers\\GooglePlacesServiceProvider',
+    ),
+  ),
+  'skagarwal/google-places-api' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'SKAgarwal\\GoogleApi\\ServiceProvider',
+    ),
+    'aliases' => 
+    array (
+      'GooglePlaces' => 'SKAgarwal\\GoogleApi\\Facade',
     ),
   ),
   'spatie/laravel-ignition' => 

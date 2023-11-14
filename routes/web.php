@@ -25,6 +25,10 @@ Route::get('/events/edit/{id}', [TravelController::class, 'edit'])->middleware('
 Route::put('/events/update/{id}', [TravelController::class, 'update'])->middleware('auth');
 Route::delete('/events/update/{id}', [TravelController::class, 'destroy'])->middleware('auth');
 
+//test
+Route::get('/', [TravelController::class, 'index']);
+
+
 Route::get('/contact', function (){
     return view('contact');
 });
