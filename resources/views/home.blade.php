@@ -101,7 +101,7 @@
             });
         </script>
 
-    {{-- findPlaceFromQuery --}}
+    {{-- findPlaceFromQuery
     <label for="searchInput">Digite o que deseja:</label>
     <input type="text" id="searchInput" placeholder="Digite sua pesquisa">
 
@@ -143,8 +143,126 @@
             } else {
                 resultsList.innerHTML = '<li>Nenhum resultado encontrado.</li>';
             }
-        }</script>
+        }
 
+    </script> --}}
+  
+  {{-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBTxF53J3Ji_U1YDmtNtSZwr1eu0_wN69I&libraries=places"></script> --}}
+
+  <script>
+    let placesService;
+    let map;
+
+    function initMap() {
+        map = new google.maps.Map(document.createElement('div'));
+        placesService = new google.maps.places.PlacesService(map);
+    }
+
+    function searchPlaces() {
+        const searchInput = document.getElementById('searchInput').value;
+
+        if (searchInput.trim() !== '') {
+            const request = {
+                query: searchInput,
+                fields: ['name', 'formatted_address', 'place_id', 'types']
+            };
+
+            placesService.textSearch(request, displayResults);
+        }
+    }
+
+    function displayResults(results, status) {
+        const resultsList = document.getElementById('resultsList');
+        resultsList.innerHTML = '';
+
+        if (status === google.maps.places.PlacesServiceStatus.OK) {
+            results.forEach(place => {
+                const listItem = document.createElement('li');
+                listItem.innerHTML = `<strong>${place.name}</strong> - ${place.formatted_address} (${place.types.join(', ')})`;
+
+                const detailsButton = document.createElement('button');
+                detailsButton.textContent = 'Detalhes';
+                detailsButton.addEventListener('click', () => {
+                    displayPlaceDetails(place.place_id);
+                });
+
+                listItem.appendChild(detailsButton);
+                resultsList.appendChild(listItem);
+            });
+        } else {
+            resultsList.innerHTML = '<li>Nenhum resultado encontrado.</li>';
+        }
+    }
+
+    function displayPlaceDetails(placeId) {
+        const placeDetailsRequest = {
+            placeId,
+            fields: ['name', 'formatted_address', 'website', 'photos']
+        };
+
+        placesService.getDetails(placeDetailsRequest, async (place, status) => {
+            if (status === google.maps.places.PlacesServiceStatus.OK) {
+                const detailsContainer = document.getElementById('placeDetails');
+                detailsContainer.innerHTML = '';
+
+                const nameElement = document.createElement('h2');
+                nameElement.textContent = place.name;
+                detailsContainer.appendChild(nameElement);
+
+                const addressElement = document.createElement('p');
+                addressElement.textContent = place.formatted_address;
+                detailsContainer.appendChild(addressElement);
+
+                if (place.website) {
+                    const websiteElement = document.createElement('a');
+                    websiteElement.href = place.website;
+                    websiteElement.textContent = 'Website: ' + place.website;
+                    detailsContainer.appendChild(websiteElement);
+                }
+
+                if (place.photos && place.photos.length > 0) {
+                    place.photos.forEach(photo => {
+                        if (photo && photo.hasOwnProperty('getUrl')) {
+                            const photoUrl = photo.getUrl({ maxWidth: 300, maxHeight: 300 });
+
+                            const photoElement = document.createElement('img');
+                            photoElement.src = photoUrl;
+                            detailsContainer.appendChild(photoElement);
+                        } else {
+                            console.error('Erro: Objeto de foto inválido na resposta da API.');
+                        }
+                    });
+                } else {
+                    console.error('Erro: Nenhuma foto encontrada para este lugar.');
+                }
+            }
+        });
+    }
+
+    // initMap();
+</script>
+
+
+<div class="mdc-top-app-bar">
+    <div class="mdc-top-app-bar__row">
+        <span class="mdc-top-app-bar__title">Pesquisa de lugares no Google Maps</span>
+    </div>
+</div>
+
+<div>
+    <label for="searchInput">Digite o que deseja:</label>
+    <input type="text" id="searchInput" placeholder="Digite sua pesquisa">
+
+    <button onclick="searchPlaces()">Buscar Locais</button>
+</div>
+
+<ul id="resultsList"></ul>
+
+<div id="placeDetails"></div>
+
+{{-- <script>
+    initMap();
+</script> --}}
 
 </div>
 @endauth
