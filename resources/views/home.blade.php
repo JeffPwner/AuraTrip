@@ -66,7 +66,7 @@
         @endif
     </div>
 
-    {{-- AutoComplete --}}
+    {{-- AutoComplete
         <div class="container">
             <input type="text" id="place-name" placeholder="Nome do lugar">
             <div id="results"></div>
@@ -99,7 +99,7 @@
                     }
                 });
             });
-        </script>
+        </script> --}}
 
     {{-- findPlaceFromQuery
     <label for="searchInput">Digite o que deseja:</label>
@@ -149,7 +149,7 @@
   
   {{-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBTxF53J3Ji_U1YDmtNtSZwr1eu0_wN69I&libraries=places"></script> --}}
 
-  <script>
+  {{-- <script>
     let placesService;
     let map;
 
@@ -240,10 +240,10 @@
     }
 
     // initMap();
-</script>
+</script> --}}
 
 
-<div class="mdc-top-app-bar">
+{{-- <div class="mdc-top-app-bar">
     <div class="mdc-top-app-bar__row">
         <span class="mdc-top-app-bar__title">Pesquisa de lugares no Google Maps</span>
     </div>
@@ -258,7 +258,7 @@
 
 <ul id="resultsList"></ul>
 
-<div id="placeDetails"></div>
+<div id="placeDetails"></div> --}}
 
 {{-- <script>
     initMap();

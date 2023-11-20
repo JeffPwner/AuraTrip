@@ -60,10 +60,15 @@ class TravelController extends Controller
         return redirect('/')->with('msg','Viagem criada com sucesso!');
     }
 
-    public function show($id){
+    public function show($id) {
         $travel = Travel::findOrFail($id);
-        return view('events.show', ['travel' => $travel]);
+        $places = $travel->places;
+    
+        return view('events.show', ['places' => $places, 'travel' => $travel]);
     }
+    
+    
+    
 
     public function dashboard(){
         $search = request('search');
@@ -97,8 +102,15 @@ class TravelController extends Controller
     }
 
     public function update(Request $request){
+        Travel::findOrFail($id)->delete();
         Travel::findOrFail($request->id)->update($request->all());
         return redirect('/dashboard')->with('msg', 'Viagem editada com sucesso!');
+    }
+
+    public function updateShow(Request $request){
+        $id = $request->id;
+        Travel::findOrFail($id)->update($request->all());
+        return redirect("/events/{$id}")->with('msg', 'Viagem editada com sucesso!');
     }
 
     // public function complete() {

@@ -29,6 +29,7 @@
                 <p class="card-place">{{$travel->city}}</p>
                 <p class="card-date">Início: {{date('d/m/Y', strtotime($travel->startDate))}}</p>
                 <p class="card-date">Fim: {{date('d/m/Y', strtotime($travel->endDate))}}</p>
+                <a href="/events/{{$travel->id}}" class="btn btn-primary">Viajar</a>
                 <a href="/events/edit/{{$travel->id}}" class="btn btn-info edit-btn">Editar</a>
                 <form action="/events/{{$travel->id}}" method="POST">
                     @csrf

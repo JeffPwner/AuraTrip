@@ -18,4 +18,8 @@ class Travel extends Model
     }
 
     protected $guarded = [];
+
+    protected $casts = [
+        'places' => 'array'
+    ];
 }
