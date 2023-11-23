@@ -33,7 +33,10 @@
             <input type="date" class="form-control" id="endDate" name="endDate">
         </div>
         <div class="form-group">
-            <p>PLACEHOLDER FOR API</p>
+            <label for="budget">Orçamento:</label>
+            <input type="money" class="form-control" id="budget" name="budget">
+        </div>
+        <div class="form-group">
         </div>
         <input type="submit" class="btn btn-primary">
     </form>

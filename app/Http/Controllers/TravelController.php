@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Travel;
+use App\Models\Places;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
 
@@ -42,6 +43,8 @@ class TravelController extends Controller
         $travel->description = $request->description;
         $travel->startDate = $request->startDate;
         $travel->endDate = $request->endDate;
+        $travel->budget = $request->budget;
+        $travel->places = [];
 
         //Image Upload
         if($request->hasFile('image') && $request->file('image')->isValid()){
@@ -62,14 +65,16 @@ class TravelController extends Controller
 
     public function show($id) {
         $travel = Travel::findOrFail($id);
-        $places = $travel->places;
+        $placesData = Places::where('travels_id', $id)->get();
     
-        return view('events.show', ['places' => $places, 'travel' => $travel]);
+        // Não é necessário decodificar se $item->places já for um array
+        $places = $placesData->map(function ($item) {
+            return $item->places;
+        });
+    
+        return view('events.show', compact('travel', 'places'));
     }
     
-    
-    
-
     public function dashboard(){
         $search = request('search');
     
@@ -102,7 +107,6 @@ class TravelController extends Controller
     }
 
     public function update(Request $request){
-        Travel::findOrFail($id)->delete();
         Travel::findOrFail($request->id)->update($request->all());
         return redirect('/dashboard')->with('msg', 'Viagem editada com sucesso!');
     }
@@ -111,6 +115,19 @@ class TravelController extends Controller
         $id = $request->id;
         Travel::findOrFail($id)->update($request->all());
         return redirect("/events/{$id}")->with('msg', 'Viagem editada com sucesso!');
+    }
+
+    public function createPlace(Request $request, $id){
+        $place = new Places;
+        $place->places = $request->places;
+
+        $placesID = Travel::findOrFail($id);
+        $place->travels_id = $placesID->id;
+
+        $place->save();
+
+        return redirect("/events/{$id}")->with('msg', 'Viagem editada com sucesso!');
+
     }
 
     // public function complete() {

@@ -24,18 +24,29 @@
                     <a href="{{ $place['website'] }}" target="_blank">Website</a>
                 @endif
             @endforeach --}}
-            <h3>Local que deseja visitar:</h3>
-            <p>{{$places['name']}}</p>
-            <p>{{ $places['formatted_address'] }}
-            @if(isset($places['website']))
-                <a href="{{ $places['website'] }}" target="_blank">Website</a>
+            @if ($places != null)
+                <h3>Roteiro de Viagem:</h3>
+                @foreach($places as $place)
+                    <h4>{{ $place['name'] }}</h4>
+                    <p>{{ $place['formatted_address'] }}</p>
+                    @if(isset($place['website']))
+                        <a href="{{ $place['website'] }}" target="_blank">Website</a>
+                    @endif
+                    <form action="/events/{{$travel->id}}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger delete-btn">Deletar Lugar</button>
+                    </form>
+                    <hr>
+                @endforeach
             @endif
-            <a href="/events/edit/{{$travel->id}}" class="btn btn-info edit-btn">Editar</a>
+
+            {{-- <a href="/events/edit/{{$travel->id}}" class="btn btn-info edit-btn">Editar</a>
             <form action="/events/{{$travel->id}}" method="POST">
                 @csrf
                 @method('DELETE')
                 <button type="submit" class="btn btn-danger delete-btn">Deletar</button>
-            </form>
+            </form> --}}
         </div>
     </div>
     
@@ -55,7 +66,6 @@
         
         <form action="/events/{{$travel->id}}" method="POST" enctype="multipart/form-data" id="addPlaceForm">
             @csrf
-            @method('PUT')
         
             <!-- Container para campos dinâmicos do local -->
             <div id="placeDetails"></div>

@@ -17,6 +17,10 @@ class Travel extends Model
         return $this->belongsTo('App\Models\User');
     }
 
+    public function places(){
+        return $this->belongsTo('App\Models\Places');
+    }
+
     protected $guarded = [];
 
     protected $casts = [
