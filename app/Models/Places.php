@@ -14,6 +14,8 @@ class Places extends Model
         return $this->hasMany('App\Models\Travel');
     }
 
+    protected $guarded = [];
+    
     protected $casts = [
         'places' => 'array'
     ];

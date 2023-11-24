@@ -66,8 +66,7 @@ class TravelController extends Controller
     public function show($id) {
         $travel = Travel::findOrFail($id);
         $placesData = Places::where('travels_id', $id)->get();
-    
-        // Não é necessário decodificar se $item->places já for um array
+
         $places = $placesData->map(function ($item) {
             return $item->places;
         });
@@ -99,7 +98,7 @@ class TravelController extends Controller
     public function destroy($id){
         Travel::findOrFail($id)->delete();
         return redirect('/dashboard')->with('msg', 'Viagem excluída com sucesso!');
-    }
+    }  
     
     public function edit($id){
         $travel = Travel::findOrFail($id);
@@ -126,10 +125,30 @@ class TravelController extends Controller
 
         $place->save();
 
-        return redirect("/events/{$id}")->with('msg', 'Viagem editada com sucesso!');
+        return redirect("/events/roadmap/{$id}")->with('msg', 'Lugar adicionado ao roteiro com sucesso!');
 
     }
 
+
+    //roadmap com os lugares em que a pessoa salvou da api
+    public function roadmap($id){
+        $travel = Travel::findOrFail($id);
+        $placesData = Places::where('travels_id', $id)->get();
+        $placess = Places::where('travels_id', $id)->get();
+        $places = $placesData->map(function ($item) {
+            return $item->places;
+        });
+    
+        return view('events.roadmap', compact('travel', 'places', 'placess'));
+    }
+
+    //delete próprio para apenas os locais salvos pela api
+    public function destroyPlace($id){
+        $places = Places::findOrFail($id);
+        $places->delete();
+        return redirect()->back()->with('msg', 'Local excluído do roteiro com sucesso!');
+    }
+    
     // public function complete() {
     //   $googlePlaces = new PlacesApi('AIzaSyBTxF53J3Ji_U1YDmtNtSZwr1eu0_wN69I'); # line 1
     //   $response = $googlePlaces->placeAutocomplete('cubatão'); # line 2

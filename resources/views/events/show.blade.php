@@ -15,6 +15,7 @@
             <p class="description">{{$travel->description}}</p>
             <p>Data de início: {{date('d/m/Y', strtotime($travel->startDate))}}</p>
             <p>Data de término: {{date('d/m/Y', strtotime($travel->endDate))}}</p>
+            <p>Orçamento: R${{$travel->budget}}</p>
             <!-- Exemplo de como exibir as informações na sua view -->
 
             {{-- @foreach($places as $place)
@@ -32,13 +33,16 @@
                     @if(isset($place['website']))
                         <a href="{{ $place['website'] }}" target="_blank">Website</a>
                     @endif
-                    <form action="/events/{{$travel->id}}" method="POST">
+                    {{-- <form action="/events" method="POST">
                         @csrf
                         @method('DELETE')
+                        <input type="hidden" name="travel_id" value="{{ $travel->id }}">
+                        <input type="hidden" name="place_id" value="{{ $places->pluck('id')->first() }}">
                         <button type="submit" class="btn btn-danger delete-btn">Deletar Lugar</button>
-                    </form>
+                    </form> --}}
                     <hr>
                 @endforeach
+                <a href="/events/roadmap/{{$travel->id}}">Gerenciar roteiro</a>
             @endif
 
             {{-- <a href="/events/edit/{{$travel->id}}" class="btn btn-info edit-btn">Editar</a>

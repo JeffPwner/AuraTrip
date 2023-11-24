@@ -55,6 +55,7 @@
                 <p class="card-place">{{$travel->city}}</p>
                 <p class="card-date">Início: {{date('d/m/Y', strtotime($travel->startDate))}}</p>
                 <p class="card-date">Fim: {{date('d/m/Y', strtotime($travel->endDate))}}</p>
+                <p>Orçamento: R${{$travel->budget}}</p>
                 <a href="/events/{{$travel->id}}" class="btn btn-primary">Viajar</a>
             </div>
         </div>
