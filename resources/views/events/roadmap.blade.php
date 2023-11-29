@@ -62,9 +62,12 @@
                 <div class="card-body">
                     <h5 class="card-title">{{ $place['name'] }}</h5>
                     <p class="card-text">{{ $place['formatted_address'] }}</p>
+                    <p>data:</p>
+                    <p>hora:</p>
                     @if(isset($place['website']))
                         <a href="{{ $place['website'] }}" target="_blank" class="card-link">Website</a>
                     @endif
+
                 </div>
                 <div class="card-footer">
                     <!-- Formulário dentro do loop -->
@@ -73,6 +76,7 @@
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger delete-btn">Deletar Lugar</button>
                     </form>
+
                 </div>
             </div>
 
