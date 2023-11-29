@@ -1,0 +1,359 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+
+/*
+    responsividade
+    320px — 480px: dispositivos móveis
+    481px — 768px: iPads, tablets
+    769px — 1024px: telas pequenas, laptops
+    1025px — 1200px: desktops, telas grandes
+    1201px e acima —  telas muito grandes, TVs
+*/
+
+@media (min-width: 1025px) {}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+}
+
+/*skip to main content button - https://www.freecodecamp.org/news/how-to-add-skip-to-main-content-links-to-a-website/#:~:text=The%20skip%2Dto%2Dmain%2Dcontent%20link%20is%20an%20ordinary,content%20on%20the%20web%20page.*/
+.skip-to-main-content-link {
+  position: absolute;
+  left: -9999px;
+  z-index: 999;
+  padding: 1em;
+  color: white;
+  background: rgba(0, 0, 0, 0.4)
+}
+
+.skip-to-main-content-link:focus {
+  left: 0;
+  transform: translateX(20%);
+  opacity: 1;
+}
+
+/* header and banner */
+
+.menucell {
+  display: none;
+}
+
+#main {
+  background-image: url("https://res.cloudinary.com/dlsuopwkn/image/upload/v1697428363/samples/animals/banner_home.png");
+}
+
+#pag_erro {
+  background-image: url("https://res.cloudinary.com/dlsuopwkn/image/upload/v1698541964/samples/animals/background_erro404.png");
+}
+
+/* banner texto título efeito https://www.youtube.com/watch?v=rc50owRPdUI&pp=ygUVc3R5bGUgY3NzIHRleHQgYmFubmVy */
+
+.style_header {
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  /* vai deixar a imagem cobrindo a tela toda*/
+  background-position: center;
+  padding: 0 8%;
+  position: relative;
+}
+
+.container_header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10%;
+  z-index: 2;
+  position: absolute;
+  margin: auto;
+}
+
+header .buttons_header {
+  display: flex;
+  list-style: none;
+}
+
+header .logo_img {
+  width: 80px;
+  height: 80px;
+  margin-top: 6px;
+}
+
+.buttons_header li a {
+  cursor: pointer;
+  font-size: 20px;
+  margin: 0 18px;
+  font-weight: 600;
+  text-decoration: none;
+  color: #ffffff;
+  position: relative;
+}
+
+.buttons_header li a::after {
+  content: "";
+  bottom: 0;
+  position: absolute;
+  left: 50%;
+  width: 0%;
+  height: 3px;
+  background-color: #03ab99;
+  transition: 0.2s;
+}
+
+.buttons_header li a:hover::after {
+  left: 0;
+  width: 100%;
+}
+
+/* teste animação título */
+
+.title_black {
+  font-size: 198px;
+  opacity: 0;
+  transform: translateY(100%);
+  animation: slideMain 3s forwards;
+  text-align: center;
+  color: transparent;
+  -webkit-text-stroke: 1px #000;
+  text-stroke: 1px #000;
+  user-select: none;
+
+}
+
+@keyframes slideMain {
+  0% {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* animação norway e Tromso*/
+
+.title_tromso {
+  font-size: 178px;
+  opacity: 0;
+  transform: translateY(100%);
+  animation: slideIn 3s forwards;
+  text-align: center;
+  color: transparent;
+  -webkit-text-stroke: 1px #fff;
+  text-stroke: 1px #fff;
+  user-select: none;
+}
+
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* botão de pesquisa */
+
+.formdobotaopesquisa {
+  text-align: center;
+}
+
+input.form-control {
+  background: rgba(0, 0, 0, 0.2);
+  /* Fundo com baixa opacidade */
+  border-radius: 10px;
+  width: 80%;
+  margin: auto;
+  color: white;
+  padding: 8px;
+  font-size: 15px;
+  outline: 2px solid rgba(255, 255, 255, 0.2);
+  border: none;
+}
+
+#search::placeholder {
+  color: white;
+  font-weight: 500;
+  opacity: 1;
+}
+
+/* section 1 */
+
+/* Estilos para a seção */
+
+.style_section {
+  width: 100%;
+  padding: 5vh 8%;
+  background-color: #f7f7f7; /* Cor de fundo da seção */
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px; /* Largura máxima do container */
+  margin: 0 auto; /* Centralizar o container na página */
+}
+
+.container_text {
+  flex: 1;
+  padding: 20px;
+  text-align: left;
+}
+
+.container_text h1 {
+  font-size: 3rem;
+  color: #333; /* Cor do título principal */
+  margin-bottom: 10px;
+}
+
+.container_text h2 {
+  font-size: 1.8rem;
+  color: #666; /* Cor do subtítulo */
+  margin-bottom: 20px;
+}
+
+.container_text p {
+  font-size: 1.2rem;
+  color: #444;
+  line-height: 1.6;
+}
+
+.container_image {
+  flex: 1;
+  text-align: center;
+}
+
+.container_image img {
+  max-width: 100%;
+  height: auto;
+}
+
+
+/* cards feedbacks */
+
+.feedback_title h1 {
+  text-align: center;
+  font-size: 35px;
+}
+
+.cards {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+
+/* Estilo do container de cada card */
+.card1,
+.card2,
+.card3 {
+  border: 2px solid #03ab99;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 350px;
+  text-align: center;
+}
+
+/* Estilo do nome da pessoa */
+.name {
+  margin-top: 10px;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+/* Estilo das estrelas de avaliação */
+.stars {
+  color: #03ab99; /* Cor das estrelas amarelas */
+  margin: 10px 0;
+  font-size: 22px;
+}
+
+/* Estilo do texto do depoimento */
+.pessoa p {
+  font-size: 15px;
+  line-height: 1.5;
+  margin-top: 15px;
+  font-weight: 400;
+  text-align: left;
+  padding: 2px;
+  color: #666;
+}
+
+/* Estilo da imagem da pessoa */
+.pessoa img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 15px;
+}
+
+
+/* footer */
+
+
+footer {
+  border-top: 3px solid #03ab99;
+  width: 100vw;
+  padding: 60px 180px;
+  background-color: #292423;
+  color: white;
+}
+
+.container_footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.container_footer_section {
+  max-width: 45%;
+}
+
+.container_footer_section p {
+  margin: 3px;
+}
+
+.icons ion-icon {
+  color: white;
+  font-size: 24px;
+  background-color: transparent;
+  border: 2px solid white;
+  padding: 8px;
+  border-radius: 24px;
+  margin-left: 5px;
+}
+
+.icons ion-icon:hover {
+  background: white;
+  color: #191a1a;
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+p .termos {
+  color: white;
+}
+
+.copyright {
+  border-top: 3px solid #03ab99;
+}
+
+.copyright,
+.copyright p {
+  padding: 5px;
+  text-align: center;
+  color: #fff;
+  background-color: #191a1a;
+}
