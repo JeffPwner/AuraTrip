@@ -200,59 +200,62 @@ input.form-control {
   height: 55vh;
 }
 
+
 /* footer */
 
+
 footer {
-  background: #fff;
-  padding: 0 8%;
-  width: 100%;
-  color: #191a1a;
-  border-top: 5px solid #A0C8F9;
+  border-top: 3px solid #03ab99;
+  width: 100vw;
+  padding: 60px 180px;
+  background-color: #292423;
+  color: white;
 }
 
 .container_footer {
-  width: 90%;
   display: flex;
-  margin: auto;
   justify-content: space-between;
 }
 
-footer p,
-.teste {
-  text-align: center;
-  font-weight: 500;
+.container_footer_section {
+  max-width: 45%;
 }
 
-footer p ion-icon {
-  background: #272a2f;
-  color: #fff;
-  padding: 9px;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
-  font-size: 16px;
-  margin: 0 10px;
-  margin-top: 15px;
-  border-radius: 4px;
+.container_footer_section p {
+  margin: 3px;
 }
 
-footer p a ion-icon:hover {
-  background: #fff;
+.icons ion-icon {
+  color: white;
+  font-size: 24px;
+  background-color: transparent;
+  border: 2px solid white;
+  padding: 8px;
+  border-radius: 24px;
+  margin-left: 5px;
+}
+
+.icons ion-icon:hover {
+  background: white;
   color: #191a1a;
   transition: 0.5s;
   cursor: pointer;
 }
 
-/* section copyright */
+p .termos {
+  color: white;
+}
 
 .copyright {
-  border-top: 3px solid #A0C8F9;
+  border-top: 3px solid #03ab99;
 }
 
 .copyright,
 .copyright p {
-  background: #fff;
-  padding: 2px;
+  padding: 5px;
   text-align: center;
-  color: #191a1a;
+  color: #fff;
+  background-color: #191a1a;
 }
 
 /* Roadmap - Roteiro */

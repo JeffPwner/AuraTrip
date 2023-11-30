@@ -78,23 +78,23 @@
         </main>
         <footer>
           <div class="container_footer">
-            <div class="container1">
-              <p>footer estruturado mas não estilizado</p>
+            <div class="container_footer_section">
+              <p style="color: white; margin-bottom: 10px;">O AuraTrip é uma empresa de planejamento de viagens que vai revolucionar o turismo e te ajudar a fazer o passeio dos sonhos.</p>
+              <p>
+                <a class="termos" href="termos.blade.php">Termos e condições</a>
+              </p>
             </div>
 
-            <div class="container2">
-              <p>
-                <h2 class="teste">Entre em contato conosco</h1>
-              </p>
-              <p>
+            <div class="container_footer_section">
+              <a class="termos" href="mailto:guicrispim1000@gmail.com" style="color: white; margin-bottom: 10px;">Entre em contato conosco</a>
+              <p class="icons" style="margin-top: 10px;">
                 <a title="Github AuraTrip" href="https://github.com/jeffpwner/auratrip" target="_blank"><ion-icon name="logo-github"></ion-icon></a>
                 <a title="Instagram AuraTrip" href="https://instagram.com/auratrip_" target="_blank"><ion-icon name="logo-instagram"></ion-icon></a>
-                <a title="Behance AuraTrip" href="https://www.behance.net/guilhermesilva77" target="_blank"><ion-icon name="logo-behance"></ion-icon></a>
-                <a title="E-mail AuraTrip" href="mailto:guicrispim1000@gmail.com" target="_blank"><ion-icon name="mail"></ion-icon></a>
+                <a title="Behance AuraTrip" href="https://www.behance.net/guilhermecrispim" target="_blank"><ion-icon name="logo-behance"></ion-icon></a>
               </p>
             </div>
-        </footer>
           </div>
+        </footer>
         <div class="copyright">
             <p>&copy; Auratrip; 2023 - Todos os Direitos Reservados</p>
         </div>
