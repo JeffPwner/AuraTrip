@@ -4,17 +4,17 @@
 
 @section('content')
 
-<form action="/events/update/{{$travel->id}}" method="POST" enctype="multipart/form-data">
+<form class="container_form" action="/events/update/{{$travel->id}}" method="POST" enctype="multipart/form-data">
     @csrf
     @method('PUT')
         <div class="col-md-10 offset-md-1">
             <div class="row">
-                <div id="image-container" class="col-md-6">
+                <div id="image-container" class="form_group">
                     <img src="/img/travels/{{$travel->image}}" class="img-fluid" alt="{{$travel->title}}">
-                    <label for="title">Imagem da Viagem:</label>
-                    <input type="file" id="image" name="image" class="form-control-file">
+                    <label for="title">Imagem da Viagem:</label><br>
+                    <input type="file" style="font-weight: 500;" id="image" name="image" class="form-control-file">
                 </div>
-                <div id="info-container" class="col-md-6">
+                <div id="info-container" class="form_group">
                     <h1>Editando: {{$travel->title}}</h1>
                     <label for="title">Viagem:</label>
                     <input type="text" class="form-control" id="title" name="title" placeholder="Título da Viagem" value="{{$travel->title}}">

@@ -28,7 +28,7 @@ class TravelController extends Controller
             $travels = collect();
         }
         
-        return view('home', ['travels' => $travels, 'search' => $search]);
+        return view('/dashboard', ['travels' => $travels, 'search' => $search]);
     }
     
 

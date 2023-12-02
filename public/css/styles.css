@@ -166,7 +166,7 @@ header .logo_img {
 }
 
 input.form-control {
-  background: rgba(109, 109, 109, 0.1);
+  background: #fff;
   /* Fundo com baixa opacidade */
   border-radius: 10px;
   width: 80%;
