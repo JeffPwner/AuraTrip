@@ -108,11 +108,11 @@
 
 @auth
 <div id="travels-container" class="col-md-12">
-    @if ($search)
+    {{-- @if ($search)
         <h2>Buscando por: {{$search}}</h2>
     @else
-        {{-- <h2>Todas as Viagens</h2> --}}
-    @endif
+        <h2>Todas as Viagens</h2>
+    @endif --}}
     
     
     {{-- <p class="subtitle">Veja as viagens planejadas!</p>

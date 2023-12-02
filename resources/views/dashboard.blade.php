@@ -8,9 +8,11 @@
     <div class="feedback_title">
         <h1>Busque por uma viagem</h1>
     </div>
-    <form action="/dashboard" method="GET">
-        <input type="text" id="search" name="search" class="form-control" placeholder="Procurar...">
-    </form>
+    <div id="search-container" class="col-md-12">
+        <form action="/dashboard" method="GET" class="formdobotaopesquisa">
+            <input type="text" id="search" name="search" class="form-control" placeholder="Busque por uma Viagem - Procurar...">
+        </form>
+    </div>
 </div>
 
 <div id="travels-container" class="style_section">
@@ -50,6 +52,22 @@
         @endif
     </div>
 </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Verifique se estamos na página específica onde você não deseja mostrar o formulário
+        if (window.location.pathname === '/layouts/template') {
+            // Encontre o formulário pelo ID
+            var searchForm = document.getElementById('search-container');
+
+            // Verifique se o formulário existe antes de tentar ocultá-lo
+            if (searchForm) {
+                // Oculte o formulário
+                searchForm.style.display = 'none';
+            }
+        }
+    });
+</script>
 
 
 @endsection

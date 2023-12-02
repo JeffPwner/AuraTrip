@@ -20,6 +20,7 @@ class TravelController extends Controller
                 $travels = Travel::where('user_id', auth()->user()->id)
                     ->where('title', 'like', '%' . $search . '%')
                     ->get();
+                return view('/dashboard', ['travels' => $travels, 'search' => $search]);
             } else {
                 $travels = Travel::where('user_id', auth()->user()->id)->get();
             }
@@ -28,7 +29,7 @@ class TravelController extends Controller
             $travels = collect();
         }
         
-        return view('/dashboard', ['travels' => $travels, 'search' => $search]);
+        return view('/home', ['travels' => $travels, 'search' => $search]);
     }
     
 

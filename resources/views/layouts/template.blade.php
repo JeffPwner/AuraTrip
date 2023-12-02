@@ -59,6 +59,13 @@
               <!-- <div class="menucell"><ion-icon name="menu-outline"></ion-icon></div> -->
           </div>
           <h1 class="title_tromso" style="margin-top: 30px;">AuraTrip</h1>
+          @if(request()->is('/'))
+            <div id="search-container" class="col-md-12">
+                <form action="/" method="GET" class="formdobotaopesquisa">
+                    <input type="text" id="search" name="search" class="form-control" placeholder="Busque por uma Viagem - Procurar...">
+                </form>
+            </div>
+          @endif
         </header>
         <main>
           <div class="container-fluid">

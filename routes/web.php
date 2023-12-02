@@ -28,7 +28,7 @@ Route::put('/events/update/{id}', [TravelController::class, 'update'])->middlewa
 Route::delete('/events/update/{id}', [TravelController::class, 'destroy'])->middleware('auth');
 
 //test
-Route::get('/', [TravelController::class, 'index']);
+// Route::get('/', [TravelController::class, 'index']);
 
 Route::post('/events/{id}', [TravelController::class, 'createPlace']);
 
