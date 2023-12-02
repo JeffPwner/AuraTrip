@@ -4,38 +4,42 @@
 
 @section('content')
 
-<div id="search-container" class="col-md-12">
-    <h1>Busque por uma Viagem</h1>
+<div id="search-container" class="style_section">
+    <div class="feedback_title">
+        <h1>Busque por uma viagem</h1>
+    </div>
     <form action="/dashboard" method="GET">
         <input type="text" id="search" name="search" class="form-control" placeholder="Procurar...">
     </form>
 </div>
 
-<div id="travels-container" class="col-md-12">
+<div id="travels-container" class="style_section">
     @if ($search)
         <h2>Buscando por: {{$search}}</h2>
     @else
         <h2>Todas as Viagens</h2>
     @endif
 
-<div id="travels-container" class="col-md-12">
+<div id="travels-container" class="style_section">
     
-    <div id="cards-container" class="row">
+    <div id="cards-container" class="row" style="margin: 30px; display: flex; justify-content: space-evenly;">
         @foreach($travels as $travel)
-        <div class="card col-md-3">
-            <img src="/img/travels/{{$travel->image}}" alt="{{ $travel->title }}">
-            <div class="card-body">
-                <h5 class="card-title">{{ $travel->title }}</h5>
-                <p class="card-place">{{$travel->city}}</p>
-                <p class="card-date">Início: {{date('d/m/Y', strtotime($travel->startDate))}}</p>
-                <p class="card-date">Fim: {{date('d/m/Y', strtotime($travel->endDate))}}</p>
-                <a href="/events/{{$travel->id}}" class="btn btn-primary">Viajar</a>
-                <a href="/events/edit/{{$travel->id}}" class="btn btn-info edit-btn">Editar</a>
-                <form action="/events/{{$travel->id}}" method="POST">
-                    @csrf
-                    @method('DELETE')
-                    <button type="submit" class="btn btn-danger delete-btn">Deletar</button>
-                </form>
+        <div class="card_trip">
+            <img class="image_card" src="/img/travels/{{$travel->image}}" alt="{{ $travel->title }}">
+            <div class="card_body">
+                <h5 class="card_title">{{ $travel->title }}</h5>
+                <p class="card_place">{{$travel->city}}</p>
+                <p class="card_date">Início: {{date('d/m/Y', strtotime($travel->startDate))}}</p>
+                <p class="card_date">Fim: {{date('d/m/Y', strtotime($travel->endDate))}}</p>
+                <div class="buttons_card">
+                    <a href="/events/{{$travel->id}}" class="travel_card_button">Viajar</a>
+                    <a href="/events/edit/{{$travel->id}}" class="edit_card_button">Editar</a>
+                    <form action="/events/{{$travel->id}}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="delete_card_button">Deletar</button>
+                    </form>
+                </div>
             </div>
         </div>
         @endforeach

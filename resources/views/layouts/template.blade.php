@@ -59,12 +59,6 @@
               <!-- <div class="menucell"><ion-icon name="menu-outline"></ion-icon></div> -->
           </div>
           <h1 class="title_tromso" style="margin-top: 30px;">AuraTrip</h1>
-      
-          <div id="search-container" class="col-md-12">
-              <form action="/" method="GET" class="formdobotaopesquisa">
-                  <input type="text" id="search" name="search" class="form-control" placeholder="Busque por uma Viagem - Procurar...">
-              </form>
-          </div>
         </header>
         <main>
           <div class="container-fluid">
@@ -103,5 +97,6 @@
         <script async
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBTxF53J3Ji_U1YDmtNtSZwr1eu0_wN69I&libraries=places&callback=initMap">
         </script>  
+        <script src="https://kit.fontawesome.com/a612fc3044.js" crossorigin="anonymous">
       </body>
 </html>

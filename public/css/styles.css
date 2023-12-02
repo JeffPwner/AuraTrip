@@ -55,7 +55,7 @@
   width: 100%;
   height: 100vh;
   background-size: cover;
-  /* vai deixar a imagem cobrindo a tela toda*/
+  /* vai deixar a imagems cobrindo a tela toda*/
   background-position: center;
   padding: 0 8%;
   position: relative;
@@ -166,22 +166,26 @@ header .logo_img {
 }
 
 input.form-control {
-  background: rgba(0, 0, 0, 0.2);
+  background: rgba(109, 109, 109, 0.1);
   /* Fundo com baixa opacidade */
   border-radius: 10px;
   width: 80%;
   margin: auto;
-  color: white;
+  color: black;
   padding: 8px;
   font-size: 15px;
-  outline: 2px solid rgba(255, 255, 255, 0.2);
+  outline: 2px solid rgba(0, 0, 0, 0.1);
   border: none;
 }
 
 #search::placeholder {
-  color: white;
+  color: black;
   font-weight: 500;
   opacity: 1;
+}
+
+main {
+  background: linear-gradient(145deg, #f3f4f7, #ecedf0);
 }
 
 /* section 1 */
@@ -201,8 +205,193 @@ input.form-control {
 }
 
 
-/* footer */
 
+/* cards feedbacks */
+
+.feedback_title h1 {
+  text-align: center;
+  font-size: 35px;
+  margin: 20px;
+}
+
+.cards {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+
+.card1,
+.card2,
+.card3 {
+  border: 2px solid #03ab99;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 350px;
+  text-align: center;
+}
+
+.name {
+  margin-top: 10px;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.stars {
+  color: #03ab99; 
+  margin: 10px 0;
+  font-size: 22px;
+}
+
+.pessoa p {
+  font-size: 15px;
+  line-height: 1.5;
+  margin-top: 15px;
+  font-weight: 400;
+  text-align: left;
+  padding: 2px;
+  color: #666;
+}
+
+.pessoa img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 15px;
+}
+
+/* dashboard */
+
+.card_trip {
+  border: 2px solid #03ab99;
+  border-radius: 10px;
+  padding: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 350px;
+  text-align: left;
+}
+
+
+.image_card {
+  width: 100%;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  height: 200px;
+}
+
+.card_title {
+  font-size: 28px;
+  margin-top: 10px;
+  margin-bottom: 0;
+  font-weight: 600;
+}
+
+.card_place {
+  color: #666;
+  font-size: 24px;
+  margin-bottom: 0;
+  font-weight: 500;
+}
+
+.card_date {
+  color: #888;
+  font-size: 20px;
+  margin-bottom: 0;
+  font-weight: 500;
+}
+
+.buttons_card {
+  display: flex;
+  margin: 5px 0;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+.travel_card_button {
+  background: #094D4B;
+  color: white;
+  padding: 8px 18px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  font-weight: 500;
+  font-size: 18px;
+  text-decoration: none;
+  margin-right: 10px;
+}
+
+.delete_card_button {
+  background: #1c1c1c;
+  padding: 8px 18px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  font-weight: 500;
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.edit_card_button {
+  background: #03ab99;
+  padding: 8px 18px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  font-weight: 500;
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+  margin-right: 10px;
+}
+
+/* formulário */
+
+.container_form {
+  max-width: 70%;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+  margin: auto;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  font-size: 20px;
+}
+
+.container_form input[type="text"],
+.container_form textarea,
+.container_form input[type="submit"],
+.container_form input[type="date"],
+.container_form input[type="money"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    margin-right: 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 15px;
+  }
+
+  
+.container_form input[type="submit"] {
+    background-color: #03ab99;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 25px;
+  }
+
+.container_form input[type="submit"]:hover {
+    background-color: #099c8e;
+  }
+
+.container_form input[type="submit"]:active {
+    background-color: #0e8074;
+  }
+
+/* footer */
 
 footer {
   border-top: 3px solid #03ab99;

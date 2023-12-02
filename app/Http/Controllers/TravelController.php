@@ -60,7 +60,7 @@ class TravelController extends Controller
 
         $travel->save();
 
-        return redirect('/')->with('msg','Viagem criada com sucesso!');
+        return redirect('/dashboard')->with('msg','Viagem criada com sucesso!');
     }
 
     public function show($id) {
