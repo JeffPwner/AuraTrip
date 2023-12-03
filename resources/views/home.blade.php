@@ -34,6 +34,25 @@
 
 @endsection --}}
 
+@section('headerpage')
+    <header id="main" class="style_header_landingpage">
+        <div class="container_header">
+            <a href="/">
+                <img class="logo_img" src="https://res.cloudinary.com/dlsuopwkn/image/upload/v1698457738/samples/animals/auratripicon_white.png" width="30" height="30" alt="logo" />
+            </a>
+            <ul class="buttons" id="home" style="margin-bottom: 0;">
+                <li><a href="/dashboard">Viagens</a></li>
+                <li><a href="/events/create">Criar Viagem</a></li>
+                @guest
+                  <li><a href="/register">Cadastrar</a></li>
+                  <li><a href="/login">Entrar</a></li>
+                @endguest
+@endsection
+
+@section('tituloanimacao')
+    <h1 class="title_tromso" style="margin-top: 30px;">AuraTrip</h1>
+@endsection
+
 @section('content')
 
 <section class="style_section">

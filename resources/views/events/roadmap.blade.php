@@ -2,6 +2,21 @@
 
 @section('title', $travel->title)
 
+@section('headerpage')
+    <header class="style_header">
+        <div class="container_header">
+            <a href="/">
+                <img class="logo_img" src="https://res.cloudinary.com/dlsuopwkn/image/upload/v1697427878/samples/animals/auratripicon.png" width="30" height="30" alt="logo" />
+            </a>
+            <ul class="buttons" id="home" style="margin-bottom: 0;">
+                <li><a style="color: black" href="/dashboard">Viagens</a></li>
+                <li><a style="color: black" href="/events/create">Criar Viagem</a></li>
+                @guest
+                  <li><a style="color: black" href="/register">Cadastrar</a></li>
+                  <li><a style="color: black" href="/login">Entrar</a></li>
+                @endguest
+@endsection
+
 @section('content')
 
 

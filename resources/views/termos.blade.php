@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="/css/termos.css">
 @endsection
 
-@section('banner')
+@section('content')
 
     <h1 class="comecotermos">AuraTrip - Termos e Condições</h1>
 

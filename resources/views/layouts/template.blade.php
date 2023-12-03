@@ -30,8 +30,9 @@
       <a href="/" class="skip-to-main-content-link">Saltar para o conteúdo principal</a>
           {{-- @yield('imagemdobanner')
           @yield('banner') --}}
-        <header id="main" class="style_header">
-            <div class="container_header">
+
+          @yield('headerpage')
+            {{-- <div class="container_header">
               <a href="/">
                   <img class="logo_img" src="https://res.cloudinary.com/dlsuopwkn/image/upload/v1698457738/samples/animals/auratripicon_white.png" width="30" height="30" alt="logo" />
               </a>
@@ -41,13 +42,14 @@
                   @guest
                     <li><a href="/register">Cadastrar</a></li>
                     <li><a href="/login">Entrar</a></li>
-                  @endguest
+                  @endguest --}}
                   @auth
                     <li>
                       <form action="/logout" method="POST">
                         @csrf
                         <a href="/logout" 
-                          class="nav-link" 
+                          class="nav-link"
+                          style="color: black"
                           onclick="event.preventDefault();
                           this.closest('form').submit();">
                           Sair
@@ -58,7 +60,7 @@
               </ul>
               <!-- <div class="menucell"><ion-icon name="menu-outline"></ion-icon></div> -->
           </div>
-          <h1 class="title_tromso" style="margin-top: 30px;">AuraTrip</h1>
+          @yield('tituloanimacao')
           @if(request()->is('/'))
             <div id="search-container" class="col-md-12">
                 <form action="/" method="GET" class="formdobotaopesquisa">

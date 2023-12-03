@@ -2,9 +2,24 @@
 
 @section('title', $travel->title)
 
+@section('headerpage')
+    <header class="style_header">
+        <div class="container_header">
+            <a href="/">
+                <img class="logo_img" src="https://res.cloudinary.com/dlsuopwkn/image/upload/v1697427878/samples/animals/auratripicon.png" width="30" height="30" alt="logo" />
+            </a>
+            <ul class="buttons" id="home" style="margin-bottom: 0;">
+                <li><a style="color: black" href="/dashboard">Viagens</a></li>
+                <li><a style="color: black" href="/events/create">Criar Viagem</a></li>
+                @guest
+                  <li><a style="color: black" href="/register">Cadastrar</a></li>
+                  <li><a style="color: black" href="/login">Entrar</a></li>
+                @endguest
+@endsection
+
 @section('content')
 
-<form class="container_form" action="/events/update/{{$travel->id}}" method="POST" enctype="multipart/form-data">
+<form class="container_form" action="/events/update/{{$travel->id}}" method="POST" style="max-width: 50%;" enctype="multipart/form-data">
     @csrf
     @method('PUT')
         <div class="col-md-10 offset-md-1">
@@ -15,7 +30,7 @@
                     <input type="file" style="font-weight: 500;" id="image" name="image" class="form-control-file">
                 </div>
                 <div id="info-container" class="form_group">
-                    <h1>Editando: {{$travel->title}}</h1>
+                    <h1 style="font-size: 27px; font-weight: 500; text-align:center;">Editando: {{$travel->title}}</h1>
                     <label for="title">Viagem:</label>
                     <input type="text" class="form-control" id="title" name="title" placeholder="Título da Viagem" value="{{$travel->title}}">
                     {{-- <p class="event-city">{{$travel->city}}</p> --}}
@@ -36,10 +51,10 @@
         </div>
     <input type="submit" class="btn btn-primary" value="Confirmar">
 </form>
-<form action="/events/update/{{$travel->id}}" method="POST">
+{{-- <form action="/events/update/{{$travel->id}}" method="POST">
     @csrf
     @method('DELETE')
     <button type="submit" class="btn btn-danger delete-btn">Deletar</button>
-</form>
+</form> --}}
 
 @endsection

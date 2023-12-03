@@ -51,7 +51,7 @@
 
 /* banner texto título efeito https://www.youtube.com/watch?v=rc50owRPdUI&pp=ygUVc3R5bGUgY3NzIHRleHQgYmFubmVy */
 
-.style_header {
+.style_header_landingpage {
   width: 100%;
   height: 100vh;
   background-size: cover;
@@ -61,11 +61,19 @@
   position: relative;
 }
 
+.style_header {
+  width: 100%;
+  padding: 0 8%;
+  position: relative;
+  background: linear-gradient(145deg, #f3f4f7, #ecedf0);
+  border-bottom: 2px solid #03ab99;
+}
+
 .container_header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 90%;
+  max-width: 80%;
   margin: auto;
 }
 
@@ -78,6 +86,7 @@ header .logo_img {
   width: 80px;
   height: 80px;
   margin-top: 6px;
+  margin-bottom: 6px;
 }
 
 .buttons li a {
@@ -267,12 +276,16 @@ main {
 .card_trip {
   border: 2px solid #03ab99;
   border-radius: 10px;
-  padding: 5px;
+  padding: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   width: 350px;
   text-align: left;
+  background-color: white;
 }
 
+.msg {
+  text-align: center;
+}
 
 .image_card {
   width: 100%;

@@ -2,6 +2,21 @@
 
 @section('title', 'Viagens')
 
+@section('headerpage')
+    <header class="style_header">
+        <div class="container_header">
+            <a href="/">
+                <img class="logo_img" src="https://res.cloudinary.com/dlsuopwkn/image/upload/v1697427878/samples/animals/auratripicon.png" width="30" height="30" alt="logo" />
+            </a>
+            <ul class="buttons" id="home" style="margin-bottom: 0;">
+                <li><a style="color: black" href="/dashboard">Viagens</a></li>
+                <li><a style="color: black" href="/events/create">Criar Viagem</a></li>
+                @guest
+                  <li><a style="color: black" href="/register">Cadastrar</a></li>
+                  <li><a style="color: black" href="/login">Entrar</a></li>
+                @endguest
+@endsection
+
 @section('content')
 
 <div id="search-container" class="style_section">
@@ -17,9 +32,9 @@
 
 <div id="travels-container" class="style_section">
     @if ($search)
-        <h2>Buscando por: {{$search}}</h2>
+        <h2 style="text-align: center">Buscando por: {{$search}}</h2>
     @else
-        <h2>Todas as Viagens</h2>
+        <h2 style="text-align: center">Todas as Viagens</h2>
     @endif
 
 <div id="travels-container" class="style_section">
