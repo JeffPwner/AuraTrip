@@ -67,6 +67,20 @@
         </div>
     </div>
 </section>
+
+<section class="style_section">
+    <div class="container">
+        <div class="container_image">
+            <img alt="Illustration 2 AuraTrip" src="https://res.cloudinary.com/dlsuopwkn/image/upload/v1701480900/passport_nmzpek.png">
+        </div>
+        <div class="container_text" style="align-items: center">
+            <h1>AuraTrip</h1>
+            <h2>A melhor plataforma de viagens e informação sobre lugares</h2
+            <p> O AuraTrip é um sistema de planejamento de viagens que ajudam as pessoas a organizar suas jornadas ao redor do mundo de maneira mais eficiente e estruturada. </p>
+        </div>
+    </div>
+</section>
+
 <section class="style_section">
     <div class="feedbacks">
         <div class="feedback_title">

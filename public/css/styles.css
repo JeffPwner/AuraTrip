@@ -404,6 +404,64 @@ main {
     background-color: #0e8074;
   }
 
+  /* página de viajar */
+
+.manageroadmapbutton {
+  padding: 10px;
+  text-decoration: none;
+  border-radius: 8px;
+  background-color: #03ab99;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 20px;
+  font-weight: 500;
+  margin: auto;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: center;
+  max-width: 20%;
+}
+
+.searchplace {
+  background: #000;
+  opacity: 0.6;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  width: 80%;
+  margin: auto;
+  float: left;
+  color: white;
+  padding: 8px;
+  font-size: 15px;
+  outline: none;
+  border: 1px solid #000;
+}
+
+.searchplace::placeholder {
+  color: white;
+}
+
+.buscarplace {
+  width: 20%;
+  float: right;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  font-size: 15px;
+  padding: 9px;
+  color: #fff;
+  background: #03ab99;
+  cursor: pointer;
+  outline: none;
+  border: none;
+}
+
+.buscarplace:hover {
+  background: #049c8d;
+  transition: 0.5s;
+}
+  
 /* footer */
 
 footer {
