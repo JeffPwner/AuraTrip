@@ -201,19 +201,23 @@ main {
 
 .style_section {
   width: 100%;
-  padding: 5vh 8%;
+  padding: 3vh 8%;
 }
 
 .container {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .container_image img {
   height: 55vh;
+  padding: 3vw;
 }
 
-
+.container_text {
+  padding: 0 5vw;
+}
 
 /* cards feedbacks */
 
@@ -461,12 +465,98 @@ main {
   background: #049c8d;
   transition: 0.5s;
 }
+
+/* página erro 404 */
   
+.subtitle_404 {
+  font-size: 20px; 
+  color: rgb(255, 255, 255);
+  font-weight: 400;
+  text-align: center;
+  padding-top: 20px;
+}
+
+.menu_principal_link {
+  background: transparent;
+  border: 1px solid #fff;
+  outline: none;
+  color: #fff;
+  font-size: 20px;
+  padding: 15px 25px;
+  transition: transform 0.5s;
+  border-radius: 15px;
+  margin: auto;
+  cursor: pointer;
+  text-align: center;
+}
+
+.botao404 {
+  text-align: center;
+  padding: 35px;
+}
+
+.menu_principal_link::before {
+  padding-right: 10px;
+  transition: transform 0.5s;
+  }
+  
+  .menu_principal_link:hover {
+  transform: scale(1.1);
+  }
+  
+  .menu_principal_link:hover::before {
+  transform: translateX(10px);
+  }
+
+/* página de termos e condições */
+
+.comecotermos {
+    width: 100%;
+    text-align: center;
+    padding: 20px;
+    background-color: #03AB99;
+    color: black;
+}
+
+.container_termos {
+    margin: auto;
+    max-width: 70%;
+    padding: 10px;
+}
+
+.container_termos strong p {
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.container_termos ul li {
+    font-weight: 400;
+}
+
+.container_termos p {
+    font-weight: 400;
+    font-size: 16px;
+    text-align: justify;
+}
+
+/* roadmap */
+
+.card_lugares {
+  text-align: left;
+  background-color: white;
+  border: 2px solid #03ab99;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 350px;  
+  margin: 10px 0;
+}
+
 /* footer */
 
 footer {
   border-top: 3px solid #03ab99;
-  width: 100vw;
+  width: 100%;
   padding: 60px 180px;
   background-color: #292423;
   color: white;

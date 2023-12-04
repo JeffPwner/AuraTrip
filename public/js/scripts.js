@@ -13,7 +13,7 @@
         if (searchInput.trim() !== '') {
             const request = {
                 query: searchInput,
-                fields: ['name', 'formatted_address', 'place_id', 'types']
+                fields: ['name', 'formatted_address', 'place_id']
             };
 
             placesService.textSearch(request, displayResults);
@@ -26,11 +26,13 @@
 
         if (status === google.maps.places.PlacesServiceStatus.OK) {
             results.forEach(place => {
-                const listItem = document.createElement('li');
+                const listItem = document.createElement('div');
+                listItem.classList.add('card_lugares');
                 listItem.innerHTML = `<strong>${place.name}</strong> - ${place.formatted_address} (${place.types.join(', ')})`;
 
                 const detailsButton = document.createElement('button');
-                detailsButton.textContent = 'Detalhes';
+                detailsButton.classList.add('edit_card_button')
+                detailsButton.textContent = 'Adicionar Local';
                 detailsButton.addEventListener('click', () => {
                     displayPlaceDetails(place.place_id);
                 });
@@ -102,7 +104,10 @@
                 }
             }
         });
-    }
+    }    
+
+    // let primeirafoto = place.photos[0];
+    
     
     // Função para adicionar campos ocultos ao formulário
     function addHiddenInput(name, value) {

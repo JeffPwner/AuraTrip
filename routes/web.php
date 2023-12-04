@@ -45,8 +45,8 @@ Route::delete('/events/roadmap/{id}', [TravelController::class, 'destroyPlace'])
 
 
 
-Route::get('/contact', function (){
-    return view('contact');
+Route::get('/termos', function (){
+    return view('termos');
 });
 
 // Route::get('/viagens', function (){

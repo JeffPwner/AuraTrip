@@ -15,6 +15,20 @@
                   <li><a style="color: black" href="/register">Cadastrar</a></li>
                   <li><a style="color: black" href="/login">Entrar</a></li>
                 @endguest
+                @auth
+                    <li>
+                      <form action="/logout" method="POST">
+                        @csrf
+                        <a href="/logout" 
+                          class="nav-link"
+                          style="color: black"
+                          onclick="event.preventDefault();
+                          this.closest('form').submit();">
+                          Sair
+                        </a>
+                      </form>
+                    </li>
+                @endauth
 @endsection
 
 @section('content')
@@ -30,18 +44,17 @@
     </div>
 </div>
 
-<div id="travels-container" class="style_section">
     @if ($search)
         <h2 style="text-align: center">Buscando por: {{$search}}</h2>
     @else
         <h2 style="text-align: center">Todas as Viagens</h2>
     @endif
 
-<div id="travels-container" class="style_section">
+<div id="travels-container">
     
     <div id="cards-container" class="row" style="margin: 30px; display: flex; justify-content: space-evenly;">
         @foreach($travels as $travel)
-        <div class="card_trip">
+        <div class="card_trip" style="margin-bottom: 20px">
             <img class="image_card" src="/img/travels/{{$travel->image}}" alt="{{ $travel->title }}">
             <div class="card_body">
                 <h5 class="card_title">{{ $travel->title }}</h5>

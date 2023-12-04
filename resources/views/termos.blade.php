@@ -6,28 +6,13 @@
     <link rel="stylesheet" href="/css/termos.css">
 @endsection
 
-@section('headerpage')
-    <header class="style_header">
-        <div class="container_header">
-            <a href="/">
-                <img class="logo_img" src="https://res.cloudinary.com/dlsuopwkn/image/upload/v1697427878/samples/animals/auratripicon.png" width="30" height="30" alt="logo" />
-            </a>
-            <ul class="buttons" id="home" style="margin-bottom: 0;">
-                <li><a style="color: black" href="/dashboard">Viagens</a></li>
-                <li><a style="color: black" href="/events/create">Criar Viagem</a></li>
-                @guest
-                  <li><a style="color: black" href="/register">Cadastrar</a></li>
-                  <li><a style="color: black" href="/login">Entrar</a></li>
-                @endguest
-@endsection
-
 @section('content')
 
     <h1 class="comecotermos">AuraTrip - Termos e Condições</h1>
 
     <div class="container_termos">
         <strong><p>Coleta e Uso de Informações</p></strong>
-        <p>Ao utilizar a AuraTrip, coletamos as seguintes informações:</p> <br>
+        <p>Ao utilizar a AuraTrip, coletamos as seguintes informações:</p>
         <p>
             <ul>
                 <li>Número de dias de estadia: para sugestões adequadas à duração da estadia.</li>
@@ -36,7 +21,6 @@
                 <li>Tipo de viagem (casal ou família): para atender às suas necessidades.</li>
             </ul>
         </p> 
-        <br>
         <p>As informações são usadas exclusivamente para fornecer recomendações de viagem personalizadas, sem compartilhá-las com terceiros.</p>
     </div>
 
@@ -68,6 +52,12 @@
     <div class="container_termos">
         <strong><p>Alterações a esta Política</p></strong>
         <p>Podemos atualizar esta Política de Privacidade e notificaremos as alterações no site. O uso contínuo da AuraTrip após as mudanças implica aceitação dos novos termos.</p>
+    </div>
+
+    <div class="botao404">
+        <a href="/">
+            <button class="menu_principal_link" style="color: black; border: 1px solid #000;" >Clique aqui para voltar ao Menu Principal</button>
+        </a>
     </div>
 
 @endsection

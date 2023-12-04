@@ -15,6 +15,20 @@
                   <li><a style="color: black" href="/register">Cadastrar</a></li>
                   <li><a style="color: black" href="/login">Entrar</a></li>
                 @endguest
+                @auth
+                    <li>
+                      <form action="/logout" method="POST">
+                        @csrf
+                        <a href="/logout" 
+                          class="nav-link"
+                          style="color: black"
+                          onclick="event.preventDefault();
+                          this.closest('form').submit();">
+                          Sair
+                        </a>
+                      </form>
+                    </li>
+                @endauth
 @endsection
 
 @section('content')

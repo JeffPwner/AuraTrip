@@ -15,6 +15,20 @@
                   <li><a style="color: black" href="/register">Cadastrar</a></li>
                   <li><a style="color: black" href="/login">Entrar</a></li>
                 @endguest
+                @auth
+                    <li>
+                      <form action="/logout" method="POST">
+                        @csrf
+                        <a href="/logout" 
+                          class="nav-link"
+                          style="color: black"
+                          onclick="event.preventDefault();
+                          this.closest('form').submit();">
+                          Sair
+                        </a>
+                      </form>
+                    </li>
+                @endauth
 @endsection
 
 @section('content')
@@ -75,7 +89,7 @@
             <a href="/events/roadmap/{{$travel->id}}" class="manageroadmapbutton">Gerenciar roteiro</a>
         @endif
 
-        <h4 style="text-align: center">Pesquise por locais legais para visitar!</h4>
+        <h2 style="text-align: center">Pesquise por locais legais para visitar!</h2>
         <p style="text-align: center">Busque lugares novos nas redondesas!!</p>
         <div>
             <input type="text" id="searchInput" class="searchplace" placeholder="Digite o tipo de lugar que deseja procurar">
@@ -83,7 +97,9 @@
             <button onclick="searchPlaces()" class="buscarplace">Buscar Locais</button>
         </div>
 
-        <ul id="resultsList"></ul>
+        <div id="resultsList" class="row" style="margin-bottom: 30px; display: flex; justify-content: space-evenly;">
+    
+        </div>
 
         
         <form action="/events/{{$travel->id}}" method="POST" enctype="multipart/form-data" id="addPlaceForm">
@@ -92,7 +108,7 @@
             <!-- Container para campos dinâmicos do local -->
             <div id="placeDetails"></div>
         
-            <input type="submit" class="btn btn-primary" value="Salvar">
+            <input type="submit" class="travel_card_button" style="display: flex; justify-content: center;" value="Salvar">
         </form>
     </div>
 </div>

@@ -43,20 +43,6 @@
                     <li><a href="/register">Cadastrar</a></li>
                     <li><a href="/login">Entrar</a></li>
                   @endguest --}}
-                  @auth
-                    <li>
-                      <form action="/logout" method="POST">
-                        @csrf
-                        <a href="/logout" 
-                          class="nav-link"
-                          style="color: black"
-                          onclick="event.preventDefault();
-                          this.closest('form').submit();">
-                          Sair
-                        </a>
-                      </form>
-                    </li>
-                  @endauth
               </ul>
               <!-- <div class="menucell"><ion-icon name="menu-outline"></ion-icon></div> -->
           </div>
@@ -84,7 +70,7 @@
             <div class="container_footer_section">
               <p style="color: white; margin-bottom: 10px;">O AuraTrip é uma empresa de planejamento de viagens que vai revolucionar o turismo e te ajudar a fazer o passeio dos sonhos.</p>
               <p>
-                <a class="termos" href="termos.blade.php">Termos e condições</a>
+                <a class="termos" href="/termos">Termos e condições</a>
               </p>
             </div>
 

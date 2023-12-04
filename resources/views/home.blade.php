@@ -47,6 +47,20 @@
                   <li><a href="/register">Cadastrar</a></li>
                   <li><a href="/login">Entrar</a></li>
                 @endguest
+                @auth
+                    <li>
+                      <form action="/logout" method="POST">
+                        @csrf
+                        <a href="/logout" 
+                          class="nav-link"
+                          style="color: white"
+                          onclick="event.preventDefault();
+                          this.closest('form').submit();">
+                          Sair
+                        </a>
+                      </form>
+                    </li>
+                  @endauth
 @endsection
 
 @section('tituloanimacao')
@@ -59,7 +73,7 @@
     <div class="container">
         <div class="container_text">
             <h1>AuraTrip</h1>
-            <h2>A melhor plataforma de viagens e informação sobre lugares</h2
+            <h2>A melhor plataforma de planejamento de viagens e informações sobre lugares</h2
             <p> O AuraTrip é um sistema de planejamento de viagens que ajudam as pessoas a organizar suas jornadas ao redor do mundo de maneira mais eficiente e estruturada. </p>
         </div>
         <div class="container_image">
@@ -74,9 +88,11 @@
             <img alt="Illustration 2 AuraTrip" src="https://res.cloudinary.com/dlsuopwkn/image/upload/v1701480900/passport_nmzpek.png">
         </div>
         <div class="container_text" style="align-items: center">
-            <h1>AuraTrip</h1>
-            <h2>A melhor plataforma de viagens e informação sobre lugares</h2
-            <p> O AuraTrip é um sistema de planejamento de viagens que ajudam as pessoas a organizar suas jornadas ao redor do mundo de maneira mais eficiente e estruturada. </p>
+            <h1>Inesquecível!</h1>
+            <h2>A ferramenta ideal para planejar uma viagem ideal</h2>
+            <p>Diga adeus para o estresse e a bagunça que é organizar uma viagem. Aqui, você encontrará lugares incríveis para você adicionar nos seus roteiros de viagem.</p>
+            {{-- The only tool you'll ever need!
+Say goodbye to the stress of planning and hello to personalized recommendations, efficient itineraries, and seamless dining experiences. --}}
         </div>
     </div>
 </section>
