@@ -50,13 +50,13 @@
     
     </div>
 
-    <form style="display: flex; justify-content: center; margin: 10px;" action="/events/{{$travel->id}}" method="POST" enctype="multipart/form-data" id="addPlaceForm">
+    <form style="margin: 10px;" action="/events/{{$travel->id}}" method="POST" enctype="multipart/form-data" id="addPlaceForm">
         @csrf
     
         <!-- Container para campos dinâmicos do local -->
         <div id="placeDetails"></div>
     
-        <input type="submit" class="travel_card_button" style="display: flex; justify-content: center;" value="Salvar">
+        <input type="submit" class="travel_card_button" style="display: flex; justify-content: center;" value="Adicionar no Roteiro e Salvar">
     </form>
 
     

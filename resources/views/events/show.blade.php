@@ -77,19 +77,13 @@
                 @if(isset($place['website']))
                     <a href="{{ $place['website'] }}" target="_blank">Website</a>
                 @endif
-                {{-- <form action="/events" method="POST">
-                    @csrf
-                    @method('DELETE')
-                    <input type="hidden" name="travel_id" value="{{ $travel->id }}">
-                    <input type="hidden" name="place_id" value="{{ $places->pluck('id')->first() }}">
-                    <button type="submit" class="btn btn-danger delete-btn">Deletar Lugar</button>
-                </form> --}}
+
                 <hr>
             @endforeach
             <a href="/events/roadmap/{{$travel->id}}" class="manageroadmapbutton">Gerenciar roteiro</a>
         @endif
 
-        <h2 style="text-align: center">Pesquise por locais legais para visitar!</h2>
+        {{-- <h2 style="text-align: center">Pesquise por locais legais para visitar!</h2>
         <p style="text-align: center">Busque lugares novos nas redondesas!!</p>
         <div>
             <input type="text" id="searchInput" class="searchplace" placeholder="Digite o tipo de lugar que deseja procurar">
@@ -109,7 +103,7 @@
             <div id="placeDetails"></div>
         
             <input type="submit" class="travel_card_button" style="display: flex; justify-content: center;" value="Salvar">
-        </form>
+        </form> --}}
     </div>
 </div>
 

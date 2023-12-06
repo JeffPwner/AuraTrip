@@ -364,6 +364,20 @@ main {
   margin-right: 10px;
 }
 
+/* card de imagens de lugares */
+
+/* #placeDetails {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+} */
+
+#placeDetails img {
+  width: 260px;
+  height: 230px;
+  border-radius: 10px;
+  margin: 10px;
+}
+
 /* formulário */
 
 .container_form {
